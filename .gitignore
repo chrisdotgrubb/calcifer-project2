@@ -1,3 +1,17 @@
+scratch.txt
+
+# jetbrains stuff
+.idea
+
+# vscode stuff
+.vscode/*
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
 # Logs
 logs
 *.log
