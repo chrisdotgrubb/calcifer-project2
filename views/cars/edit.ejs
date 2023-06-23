@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+	<form action="/customers/<%= customer.id %>/cars/<%= car.id %>?_method=PUT" method="POST">
+		<input type="number" min="1900" max="2100" id="year" name="year" value="<%= car.year %>"></input>
+		<input type="text" id="make" name="make" value="<%= car.make %>"></input>
+		<input type="text" id="model" name="model" value="<%= car.model %>"></input>
+		<input type="text" id="trimLevel" name="trimLevel" value="<%= car.trimLevel %>"></input>
+		<input type="text" id="licensePlate" name="licensePlate" value="<%= car.licensePlate %>"></input>
+		<input type="number" min="0" max="2000000" id="mileage" name="mileage" value="<%= car.mileage %>"></input>
+		<input type="text" id="color" name="color" value="<%= car.color %>"></input>
+		<input type="text" id="engine" name="engine" value="<%= car.engine %>"></input>
+		<input type="text" id="tireSize" name="tireSize" value="<%= car.tireSize %>"></input>
+		<button type="submit">Submit</button>
+	</form>
+<%- include('../partials/footer') %>

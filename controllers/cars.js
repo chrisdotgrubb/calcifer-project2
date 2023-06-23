@@ -6,8 +6,8 @@ module.exports = {
 	new: newCar,
 	create,
 	delete: deleteCar,
-	// edit,
-	// update,
+	edit,
+	update,
 };
 
 
@@ -64,7 +64,7 @@ async function newCar(req, res) {
 		};
 		res.render('error', context);
 	};
-	
+
 };
 
 async function create(req, res) {
@@ -101,37 +101,44 @@ async function deleteCar(req, res) {
 	};
 }
 
-// async function edit(req, res) {
-// 	const id = req.params.customerId;
-// 	try {
-// 		const customer = await Customer.findById(id);
-// 		const context = {
-// 			customer,
-// 		};
-// 		res.render('customers/edit', context);
-// 	} catch (err) {
-// 		const context = {
-// 			error: err,
-// 			message: err.message,
-// 		};
-// 		res.render('error', context);
-// 	};
-// }
+async function edit(req, res) {
+	const customerId = req.params.customerId;
+	const carId = req.params.carId;
+	try {
+		const customer = await Customer.findById(customerId);
+		const car = customer.cars.id(carId);
+		const context = {
+			customer,
+			car,
+		};
+		res.render('cars/edit', context);
+	} catch (err) {
+		const context = {
+			error: err,
+			message: err.message,
+		};
+		res.render('error', context);
+	};
+}
 
-// async function update(req, res) {
-// 	const id = req.params.customerId;
-// 	const body = req.body;
-// 	try {
-// 		await Customer.findByIdAndUpdate(id, body, { runValidators: true });
-// 		res.redirect(`/customers/${id}`);
-// 	} catch (err) {
-// 		// check what the error is to see what to do.
-// 		// if validation issue, re-render the edit page with reasons for errors
-// 		// if can't find object, redirect with error
-// 		const context = {
-// 			customer: body,
-// 			error: err,
-// 		};
-// 		res.render('customers/edit', context);
-// 	};
-// }
+async function update(req, res) {
+	const customerId = req.params.customerId;
+	const carId = req.params.carId;
+	const body = req.body;
+	let customer;
+	try {
+		customer = await Customer.findById(customerId);
+		const car = customer.cars.id(carId);
+		Object.assign(car, body);
+		await customer.save();
+		res.redirect(`/customers/${customerId}/cars/${carId}`);
+	} catch (err) {
+		console.log(err);
+		const context = {
+			customer,
+			car: body,
+			error: err,
+		};
+		res.render('cars/edit', context);
+	};
+}

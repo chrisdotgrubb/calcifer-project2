@@ -10,6 +10,9 @@
 			<%= car.year %>
 		</li>
 	</ul>
+	<form action="/customers/<%= customer.id %>/cars/<%= car.id %>/edit" method="GET">
+		<button type="submit">edit</button>
+	</form>
 	<form action="/customers/<%= customer.id %>/cars/<%= car.id %>?_method=DELETE" method="POST">
 		<button type="submit">delete</button>
 	</form>
