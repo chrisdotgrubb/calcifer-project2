@@ -2,7 +2,9 @@ const Customer = require('../models/customer');
 
 module.exports = {
 	index,
-	show
+	show,
+	new: newCustomer,
+	create,
 };
 
 
@@ -29,7 +31,7 @@ async function show(req, res) {
 		const context = {
 			customer
 		};
-		res.render('customer/show', context);
+		res.render('customers/show', context);
 
 	} catch (err) {
 		const context = {
@@ -38,4 +40,22 @@ async function show(req, res) {
 		};
 		res.render('error', context);
 	};
+}
+
+function newCustomer(req, res) {
+	const context = {};
+	res.render('customers/new', context);
+}
+
+async function create(req, res) {
+	try {
+		await Customer.create(req.body);
+		res.redirect('/customers');
+	} catch (err) {
+		const context = {
+			error: err,
+			message: err.message,
+		};
+		res.render('error', context);
+	}
 }
