@@ -28,7 +28,7 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-	const id = req.params.id;
+	const id = req.params.customerId;
 	try {
 		const customer = await Customer.findById(id);
 		const context = {
@@ -64,7 +64,7 @@ async function create(req, res) {
 }
 
 async function deleteCustomer(req, res) {
-	const id = req.params.id;
+	const id = req.params.customerId;
 	try {
 		await Customer.findByIdAndDelete(id);
 		res.redirect('/customers');
@@ -78,7 +78,7 @@ async function deleteCustomer(req, res) {
 }
 
 async function edit(req, res) {
-	const id = req.params.id;
+	const id = req.params.customerId;
 	try {
 		const customer = await Customer.findById(id);
 		const context = {
@@ -95,7 +95,7 @@ async function edit(req, res) {
 }
 
 async function update(req, res) {
-	const id = req.params.id;
+	const id = req.params.customerId;
 	const body = req.body;
 	try {
 		await Customer.findByIdAndUpdate(id, body, { runValidators: true });
