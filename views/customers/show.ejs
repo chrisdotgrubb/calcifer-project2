@@ -16,6 +16,9 @@
 			<%= customer.preferredCommunication %>
 		</li>
 	</ul>
+	<form action="/customers/<%= customer.id %>/cars" method="GET">
+		<button type="submit">cars</button>
+	</form>
 	<form action="/customers/<%= customer.id %>/edit" method="GET">
 		<button type="submit">edit</button>
 	</form>

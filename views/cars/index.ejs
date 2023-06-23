@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<h1><%= customer.first %> <%= customer.last %></h1>
+
+<ul>
+	<% customer.cars.forEach(car=> { %>
+		<a href="/customers/<%= customer.id %>/cars/<%= car.id %>">
+			<li>
+				<%= car.make %> <%= car.model %>
+			</li>
+		</a>
+	<% }); %>
+</ul>
+
+<%- include('../partials/footer') %>

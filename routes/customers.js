@@ -4,7 +4,7 @@ const carsRouter = require('./cars');
 
 const customerController = require('../controllers/customers');
 
-router.use('/:id/cars', carsRouter);
+router.use('/:customerId/cars', carsRouter);
 
 //		'/customers'
 
