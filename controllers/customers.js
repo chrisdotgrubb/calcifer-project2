@@ -5,6 +5,7 @@ module.exports = {
 	show,
 	new: newCustomer,
 	create,
+	delete: deleteCustomer,
 };
 
 
@@ -57,5 +58,19 @@ async function create(req, res) {
 			message: err.message,
 		};
 		res.render('error', context);
-	}
+	};
+}
+
+async function deleteCustomer(req, res) {
+	const id = req.params.id;
+	try {
+		await Customer.findByIdAndDelete(id);
+		res.redirect('/customers');
+	} catch (err) {
+		const context = {
+			error: err,
+			message: err.message,
+		};
+		res.render('error', context);
+	};
 }
