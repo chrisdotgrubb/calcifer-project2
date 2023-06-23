@@ -10,21 +10,27 @@
 <body>
 	<ul>
 		<li>
-			<% customer.first %>
+			<%= customer.first %>
 		</li>
 		<li>
-			<% customer.last %>
+			<%= customer.last %>
 		</li>
 		<li>
-			<% customer.phone %>
+			<%= customer.phone %>
 		</li>
 		<li>
-			<% customer.email %>
+			<%= customer.email %>
 		</li>
 		<li>
-			<% customer.preferredCommunication %>
+			<%= customer.preferredCommunication %>
 		</li>
 	</ul>
+	<form action="/customers/<%= customer.id %>/edit" method="GET">
+		<button type="submit">edit</button>
+	</form>
+	<form action="/customers/<%= customer.id %>?_method=DELETE" method="POST">
+		<button type="submit">delete</button>
+	</form>
 </body>
 
 </html>

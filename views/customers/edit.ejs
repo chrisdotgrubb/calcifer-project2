@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<form action="/customers/<%= customer.id %>?_method=PUT" method="POST">
+		<input type="text" id="first" name="first" value="<%= customer.first %>"></input>
+		<input type="text" id="last" name="last" value="<%= customer.last %>"></input>
+		<input type="tel" id="phone" name="phone" value="<%= customer.phone %>"></input>
+		<input type="email" id="email" name="email" value="<%= customer.email %>"></input>
+		<select type="text" id="preferredCommunication" name="preferredCommunication">
+			<option value="call" <%= customer.preferredCommunication === 'call' ? 'selected' : ''%>>call</option>
+			<option value="text" <%= customer.preferredCommunication === 'text' ? 'selected' : ''%>>text</option>
+			<option value="email" <%= customer.preferredCommunication === 'email' ? 'selected' : ''%>>email</option>
+		</select>
+		<button type="submit">Submit</button>
+	</form>
+</body>
+
+</html>

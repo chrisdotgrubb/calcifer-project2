@@ -6,6 +6,8 @@ module.exports = {
 	new: newCustomer,
 	create,
 	delete: deleteCustomer,
+	edit,
+	update,
 };
 
 
@@ -72,5 +74,40 @@ async function deleteCustomer(req, res) {
 			message: err.message,
 		};
 		res.render('error', context);
+	};
+}
+
+async function edit(req, res) {
+	const id = req.params.id;
+	try {
+		const customer = await Customer.findById(id);
+		const context = {
+			customer,
+		};
+		res.render('customers/edit', context);
+	} catch (err) {
+		const context = {
+			error: err,
+			message: err.message,
+		};
+		res.render('error', context);
+	};
+}
+
+async function update(req, res) {
+	const id = req.params.id;
+	const body = req.body;
+	try {
+		await Customer.findByIdAndUpdate(id, body, { runValidators: true });
+		res.redirect(`/customers/${id}`);
+	} catch (err) {
+		// check what the error is to see what to do.
+		// if validation issue, re-render the edit page with reasons for errors
+		// if can't find object, redirect with error
+		const context = {
+			customer: body,
+			error: err,
+		};
+		res.render('customers/edit', context);
 	};
 }

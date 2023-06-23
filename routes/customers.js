@@ -7,9 +7,12 @@ const customerController = require('../controllers/customers');
 
 router.get('/', customerController.index);
 router.get('/new', customerController.new);
+router.get('/:id/edit', customerController.edit);
 router.get('/:id', customerController.show);
 
 router.post('/', customerController.create);
+
+router.put('/:id', customerController.update);
 
 router.delete('/:id', customerController.delete);
 

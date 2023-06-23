@@ -8,7 +8,7 @@
 <body>
 	<ul>
 		<% customers.forEach(customer => { %>
-			<li><%= customer.first %> <%= customer.last %></li>
+			<a href="/customers/<%= customer.id %>"><li><%= customer.first %> <%= customer.last %></li></a>
 		<% }); %>
 	</ul>
 </body>
