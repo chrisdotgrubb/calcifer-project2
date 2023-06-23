@@ -9,7 +9,7 @@ const carController = require('../controllers/cars');
 router.get('/', carController.index);
 // router.get('/new', carController.new);
 // router.get('/:carId/edit', carController.edit);
-// router.get('/:carId', carController.show);
+router.get('/:carId', carController.show);
 
 // router.post('/', carController.create);
 

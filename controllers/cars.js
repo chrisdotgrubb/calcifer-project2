@@ -2,7 +2,7 @@ const Customer = require('../models/customer');
 
 module.exports = {
 	index,
-	// show,
+	show,
 	// new: newCustomer,
 	// create,
 	// delete: deleteCustomer,
@@ -28,23 +28,26 @@ async function index(req, res) {
 	};
 }
 
-// async function show(req, res) {
-// 	const id = req.params.customerId;
-// 	try {
-// 		const customer = await Customer.findById(id);
-// 		const context = {
-// 			customer
-// 		};
-// 		res.render('customers/show', context);
+async function show(req, res) {
+	const customerId = req.params.customerId;
+	const carId = req.params.carId;
+	try {
+		const customer = await Customer.findById(customerId);
+		const car = customer.cars.id(carId);
+		const context = {
+			customer,
+			car,
+		};
+		res.render('cars/show', context);
 
-// 	} catch (err) {
-// 		const context = {
-// 			error: err,
-// 			message: err.message,
-// 		};
-// 		res.render('error', context);
-// 	};
-// }
+	} catch (err) {
+		const context = {
+			error: err,
+			message: err.message,
+		};
+		res.render('error', context);
+	};
+}
 
 // function newCustomer(req, res) {
 // 	const context = {};
