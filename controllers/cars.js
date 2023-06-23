@@ -3,8 +3,8 @@ const Customer = require('../models/customer');
 module.exports = {
 	index,
 	show,
-	// new: newCustomer,
-	// create,
+	new: newCustomer,
+	create,
 	// delete: deleteCustomer,
 	// edit,
 	// update,
@@ -49,23 +49,39 @@ async function show(req, res) {
 	};
 }
 
-// function newCustomer(req, res) {
-// 	const context = {};
-// 	res.render('customers/new', context);
-// }
+async function newCustomer(req, res) {
+	const customerId = req.params.customerId;
+	try {
+		const customer = await Customer.findById(customerId);
+		const context = {
+			customer,
+		};
+		res.render('cars/new', context);
+	} catch (err) {
+		const context = {
+			error: err,
+			message: err.message,
+		};
+		res.render('error', context);
+	};
+	
+};
 
-// async function create(req, res) {
-// 	try {
-// 		await Customer.create(req.body);
-// 		res.redirect('/customers');
-// 	} catch (err) {
-// 		const context = {
-// 			error: err,
-// 			message: err.message,
-// 		};
-// 		res.render('error', context);
-// 	};
-// }
+async function create(req, res) {
+	const customerId = req.params.customerId;
+	try {
+		const customer = await Customer.findById(customerId);
+		customer.cars.push(req.body);
+		await customer.save();
+		res.redirect(`/customers/${customerId}/cars`);
+	} catch (err) {
+		const context = {
+			error: err,
+			message: err.message,
+		};
+		res.render('error', context);
+	};
+}
 
 // async function deleteCustomer(req, res) {
 // 	const id = req.params.customerId;

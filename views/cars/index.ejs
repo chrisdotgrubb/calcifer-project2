@@ -11,5 +11,7 @@
 		</a>
 	<% }); %>
 </ul>
-
+<form action="/customers/<%= customer.id %>/cars/new" method="GET">
+	<button type="submit">add car</button>
+</form>
 <%- include('../partials/footer') %>

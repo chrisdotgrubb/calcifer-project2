@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+	<form action="/customers/<%= customer.id %>/cars" method="POST">
+		<input type="number" min="1900" max="2100" id="year" name="year"></input>
+		<input type="text" id="make" name="make"></input>
+		<input type="text" id="model" name="model"></input>
+		<input type="text" id="trimLevel" name="trimLevel"></input>
+		<input type="text" id="licensePlate" name="licensePlate"></input>
+		<input type="number" min="0" max="2000000" id="mileage" name="mileage"></input>
+		<input type="text" id="color" name="color"></input>
+		<input type="text" id="engine" name="engine"></input>
+		<input type="text" id="tireSize" name="tireSize"></input>
+		<button type="submit">Submit</button>
+	</form>
+<%- include('../partials/footer') %>
