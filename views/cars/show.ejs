@@ -10,4 +10,7 @@
 			<%= car.year %>
 		</li>
 	</ul>
+	<form action="/customers/<%= customer.id %>/cars/<%= car.id %>?_method=DELETE" method="POST">
+		<button type="submit">delete</button>
+	</form>
 <%- include('../partials/footer') %>

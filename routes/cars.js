@@ -4,7 +4,7 @@ const router = express.Router({mergeParams: true});
 const carController = require('../controllers/cars');
 
 
-//		'/customers/:id/cars'
+//		'/customers/:customerId/cars'
 
 router.get('/', carController.index);
 router.get('/new', carController.new);
@@ -15,6 +15,6 @@ router.post('/', carController.create);
 
 // router.put('/:carId', carController.update);
 
-// router.delete('/:carId', carController.delete);
+router.delete('/:carId', carController.delete);
 
 module.exports = router;
