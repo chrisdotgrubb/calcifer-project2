@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
-	<div class="form-group col-4">
+	<div class="form-group col-4 bg-warning p-3">
 		<form action="/customers/<%= customer.id %>?_method=PUT" method="POST" class="mt-3">
 			<h1 class="h3 mb-3 fw-normal">Edit Customer</h1>
 
@@ -38,7 +38,7 @@
 			</div>
 
 			<div class="text-center">
-				<button class="btn btn-primary w-25 my-2" type="submit">Update</button>
+				<button class="btn btn-primary w-25 my-2" type="submit">Confirm Update</button>
 			</div>
 
 		</form>
