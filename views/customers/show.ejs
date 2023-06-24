@@ -20,13 +20,13 @@
 	
 	<div class="d-flex flex-column flex-md-row gap-5 align-items-center justify-content-center">
 		<form class="form-group" action="/customers/<%= customer.id %>/cars" method="GET">
-			<button class="btn btn-md btn-primary" type="submit">cars</button>
+			<button class="btn btn-md btn-primary" type="submit">Cars</button>
 		</form>
 		<form class="form-group" action="/customers/<%= customer.id %>/edit" method="GET">
-			<button class="btn btn-md btn-secondary" type="submit">edit</button>
+			<button class="btn btn-md btn-secondary" type="submit">Edit</button>
 		</form>
 		<form class="form-group" action="/customers/<%= customer.id %>?_method=DELETE" method="POST">
-			<button class="btn btn-md btn-danger" type="submit">delete</button>
+			<button class="btn btn-md btn-danger" type="submit">Delete</button>
 		</form>
 	</div>
 
