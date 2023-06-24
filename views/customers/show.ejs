@@ -1,28 +1,33 @@
 <%- include('../partials/header') %>
-	<ul>
-		<li>
-			<%= customer.first %>
-		</li>
-		<li>
-			<%= customer.last %>
-		</li>
-		<li>
-			<%= customer.phone %>
-		</li>
-		<li>
-			<%= customer.email %>
-		</li>
-		<li>
-			<%= customer.preferredCommunication %>
-		</li>
-	</ul>
-	<form action="/customers/<%= customer.id %>/cars" method="GET">
-		<button type="submit">cars</button>
-	</form>
-	<form action="/customers/<%= customer.id %>/edit" method="GET">
-		<button type="submit">edit</button>
-	</form>
-	<form action="/customers/<%= customer.id %>?_method=DELETE" method="POST">
-		<button type="submit">delete</button>
-	</form>
+
+	<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+		<ul class="list-group col-6">
+			<li class="list-group-item">
+				<%= customer.first %>
+					<%= customer.last %>
+			</li>
+			<li class="list-group-item">
+				<%= customer.phone %>
+			</li>
+			<li class="list-group-item">
+				<%= customer.email %>
+			</li>
+			<li class="list-group-item">
+				<%= customer.preferredCommunication %> me
+			</li>
+		</ul>
+	</div>
+	
+	<div class="d-flex flex-column flex-md-row gap-5 align-items-center justify-content-center">
+		<form class="form-group" action="/customers/<%= customer.id %>/cars" method="GET">
+			<button class="btn btn-md btn-primary" type="submit">cars</button>
+		</form>
+		<form class="form-group" action="/customers/<%= customer.id %>/edit" method="GET">
+			<button class="btn btn-md btn-secondary" type="submit">edit</button>
+		</form>
+		<form class="form-group" action="/customers/<%= customer.id %>?_method=DELETE" method="POST">
+			<button class="btn btn-md btn-danger" type="submit">delete</button>
+		</form>
+	</div>
+
 <%- include('../partials/footer') %>

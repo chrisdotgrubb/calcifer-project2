@@ -1,14 +1,44 @@
 <%- include('../partials/header') %>
-	<form action="/customers" method="POST">
-		<input type="text" id="first" name="first"></input>
-		<input type="text" id="last" name="last"></input>
-		<input type="tel" id="phone" name="phone"></input>
-		<input type="email" id="email" name="email"></input>
-		<select type="text" id="preferredCommunication" name="preferredCommunication">
-			<option value="call">call</option>
-			<option value="text">text</option>
-			<option value="email">email</option>
-		</select>
-		<button type="submit">Submit</button>
-	</form>
+<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+	<div class="form-group col-4">
+		<form action="/customers" method="POST" class="mt-3">
+			<h1 class="h3 mb-3 fw-normal">New Customer</h1>
+
+			<div class="form-floating">
+				<input type="text" class="form-control my-1" id="first" name="first">
+				<label for="first">First Name</label>
+			</div>
+
+			<div class="form-floating">
+				<input type="text" class="form-control my-1" id="last" name="last">
+				<label for="last">Last Name</label>
+			</div>
+
+			<div class="form-floating">
+				<input type="text" class="form-control my-1" id="phone" name="phone">
+				<label for="phone">Phone Number</label>
+			</div>
+
+			<div class="form-floating">
+				<input type="email" class="form-control my-1" id="email" name="email">
+				<label for="email">Email</label>
+			</div>
+			
+			<div class="form-floating">
+				<select type="text" class="form-select my-1" id="preferredCommunication" name="preferredCommunication">
+					<option value="call">call</option>
+					<option value="text">text</option>
+					<option value="email">email</option>
+				</select>
+				<label for="preferredCommunication">Preferred Communication</label>
+			</div>
+
+			<div class="text-center">
+				<button class="btn btn-primary w-25 my-2" type="submit">Add Customer</button>
+			</div>
+
+		</form>
+
+	</div>
+</div>
 <%- include('../partials/footer') %>

@@ -108,6 +108,8 @@ async function update(req, res) {
 			customer: body,
 			error: err,
 		};
+		// add customer id so form action has access to it after validation error
+		context.customer.id = id;
 		res.render('customers/edit', context);
 	};
 }

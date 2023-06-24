@@ -139,6 +139,8 @@ async function update(req, res) {
 			car: body,
 			error: err,
 		};
+		// add carId so form action has access to it after validation error
+		context.car.id = carId;
 		res.render('cars/edit', context);
 	};
 }
