@@ -13,49 +13,52 @@
 				<h1 class="h3 mb-3 fw-normal">Add New Car for <%= customer.first %></h1>
 
 				<div class="form-floating">
-					<input type="number" class="form-control my-1" min="1900" max="2100" id="year" name="year">
+					<input type="number" class="form-control my-1 is-invalid <%= err.errors[`cars.${index}.year`] ? 'bg-info' : '' %>" min="1900" max="2100" id="year" name="year">
 					<label for="year">Year</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="make" name="make">
+					<input type="text" class="form-control my-1 is-valid <%= err.errors[`cars.${index}.make`] ? 'bg-info' : '' %>" id="make" name="make">
 					<label for="make">Make</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="model" name="model">
+					<input type="text" class="form-control my-1 <%= err.errors[`cars.${index}.model`] ? 'bg-info' : '' %>" id="model" name="model">
 					<label for="model">Model</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="trimLevel" name="trimLevel">
+					<input type="text" class="form-control my-1 <%= err.errors[`cars.${index}.trimLevel`] ? 'bg-info' : '' %>" id="trimLevel" name="trimLevel">
 					<label for="trimLevel">Trim</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="licensePlate" name="licensePlate">
+					<input type="text" class="form-control my-1 <%= err.errors[`cars.${index}.licensePlate`] ? 'bg-info' : '' %>" id="licensePlate" name="licensePlate">
 					<label for="licensePlate">License Plate</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="number" min="0" max="2000000" id="mileage" class="form-control my-1" id="mileage" name="mileage">
+					<input type="number" min="0" max="2000000" id="mileage" class="form-control my-1 <%= err.errors[`cars.${index}.mileage`] ? 'bg-info' : '' %>" id="mileage" name="mileage">
 					<label for="mileage">Mileage</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="color" name="color">
+					<input type="text" class="form-control my-1 <%= err.errors[`cars.${index}.color`] ? 'bg-info' : '' %>" id="color" name="color">
 					<label for="color">Color</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="engine" name="engine">
+					<input type="text" class="form-control my-1 <%= err.errors[`cars.${index}.engine`] ? 'bg-info' : '' %>" id="engine" name="engine">
 					<label for="engine">Engine</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="tireSize" name="tireSize">
+					<input type="text" class="form-control my-1 <%= err.errors[`cars.${index}.tireSize`] ? 'bg-info' : '' %>" id="tireSize" name="tireSize">
 					<label for="tireSize">Tire Size</label>
 				</div>
+
+				<%- include('../partials/errors') %>
+
 
 				<div class="text-center">
 					<button class="btn btn-primary w-25 my-2" type="submit">Add Car</button>

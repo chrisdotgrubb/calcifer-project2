@@ -44,13 +44,7 @@
 				<label for="preferredCommunication">Preferred Communication</label>
 			</div>
 
-			<% if (err.errors) { %>
-				<% for (const e in err.errors) { %>
-					<div class="text-center">
-						<h6><%= err.errors[e].message %></h6>
-					</div>
-				<% }; %>
-			<% } %>
+			<%- include('../partials/errors') %>
 
 			<div class="text-center">
 				<a href="/customers/<%= customer.id %>" class="btn btn-danger w-25 my-2 mx-2" type="submit">Cancel</a>
