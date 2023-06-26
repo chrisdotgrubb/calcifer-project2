@@ -15,6 +15,6 @@ router.post('/', servicesController.create);
 
 router.put('/:serviceId', servicesController.update);
 
-// router.delete('/:serviceId', servicesController.delete);
+router.delete('/:serviceId', servicesController.delete);
 
 module.exports = router;

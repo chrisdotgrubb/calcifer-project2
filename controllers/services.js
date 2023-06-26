@@ -5,7 +5,7 @@ module.exports = {
 	show,
 	new: newService,
 	create,
-	// delete: deleteService,
+	delete: deleteService,
 	edit,
 	update,
 };
@@ -97,6 +97,26 @@ async function create(req, res) {
 	};
 }
 
+async function deleteService(req, res) {
+	const customerId = req.params.customerId;
+	const carId = req.params.carId;
+	const serviceId = req.params.serviceId;
+	try {
+		const customer = await Customer.findById(customerId);
+		const car = customer.cars.id(carId);
+		const service = car.services.id(serviceId);
+		service.deleteOne();
+		await customer.save();
+		res.redirect(`/customers/${customerId}/cars/${carId}/services`);
+	} catch (err) {
+		const context = {
+			error: err,
+			message: err.message,
+		};
+		res.render('error', context);
+	};
+}
+
 async function edit(req, res) {
 	const customerId = req.params.customerId;
 	const carId = req.params.carId;
@@ -140,11 +160,13 @@ async function update(req, res) {
 		console.log(err);
 		const context = {
 			customer,
-			car: body,
+			// add carId so form action has access to it after validation error
+			car: {id: carId},
+			service: body,
 			error: err,
 		};
-		// add carId so form action has access to it after validation error
-		context.car.id = carId;
+		// add serviceId so form action has access to it after validation error
+		context.service.id = serviceId;
 		res.render('services/edit', context);
 	};
 }
