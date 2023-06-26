@@ -1,4 +1,12 @@
 <%- include('../partials/header') %>
+<div class="d-flex flex-column flex-md-row pt-3 align-items-center">
+	<ul class="breadcrumb">
+		<li class="breadcrumb-item"><a href="/customers" class="text-decoration-none text-primary">Customers</a></li>
+		<li class="breadcrumb-item"><a href="/customers/<%= customer.id %>" class="text-decoration-none text-primary"><%= customer.first %> <%= customer.last %></a></li>
+		<li class="breadcrumb-item"><a href="/customers/<%= customer.id %>/cars" class="text-decoration-none text-primary">Cars</a></li>
+		<li class="breadcrumb-item"><a href="/customers/<%= customer.id %>/cars/<%= car.id %>" class="text-decoration-none text-primary"><%= car.model %></a></li>
+	</ul>
+</div>
 <h1 class="text-center my-4"><%= customer.first %> <%= customer.last %></h1>
 <h2 class="text-center my-4"><%= car.make %> <%= car.model %></h2>
 <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
