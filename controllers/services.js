@@ -38,10 +38,12 @@ async function show(req, res) {
 		const customer = await Customer.findById(customerId);
 		const car = customer.cars.id(carId);
 		const service = car.services.id(serviceId);
+		const service_date = service.date.toISOString().slice(0,10);
 		const context = {
 			customer,
 			car,
 			service,
+			service_date,
 		};
 		res.render('services/show', context);
 
@@ -125,10 +127,12 @@ async function edit(req, res) {
 		const customer = await Customer.findById(customerId);
 		const car = customer.cars.id(carId);
 		const service = car.services.id(serviceId);
+		const service_date = service.date.toISOString().slice(0,10);
 		const context = {
 			customer,
 			car,
 			service,
+			service_date,
 		};
 		res.render('services/edit', context);
 	} catch (err) {
@@ -163,6 +167,7 @@ async function update(req, res) {
 			// add carId so form action has access to it after validation error
 			car: {id: carId},
 			service: body,
+			service_date: body.date,
 			error: err,
 		};
 		// add serviceId so form action has access to it after validation error
