@@ -4,6 +4,7 @@
 		<li class="breadcrumb-item"><a href="/customers" class="text-decoration-none text-primary">Customers</a></li>
 		<li class="breadcrumb-item"><a href="/customers/<%= customer.id %>" class="text-decoration-none text-primary"><%= customer.first %> <%= customer.last %></a></li>
 		<li class="breadcrumb-item"><a href="/customers/<%= customer.id %>/cars" class="text-decoration-none text-primary">Cars</a></li>
+		<li class="breadcrumb-item active"><%= car.model %></li>
 	</ul>
 </div>
 	<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
@@ -13,54 +14,54 @@
 
 				<div class="form-floating">
 					<input type="number" class="form-control my-1" id="year" name="year" value="<%= car.year %>"
-						readonly>
+						readonly disabled>
 					<label for="year">Year</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="make" name="make" value="<%= car.make %>" readonly>
+					<input type="text" class="form-control my-1" id="make" name="make" value="<%= car.make %>" readonly disabled>
 					<label for="make">Make</label>
 				</div>
 
 				<div class="form-floating">
 					<input type="text" class="form-control my-1" id="model" name="model" value="<%= car.model %>"
-						readonly>
+						readonly disabled>
 					<label for="model">Model</label>
 				</div>
 
 				<div class="form-floating">
 					<input type="text" class="form-control my-1" id="trimLevel" name="trimLevel"
-						value="<%= car.trimLevel %>" readonly>
+						value="<%= car.trimLevel %>" readonly disabled>
 					<label for="trimLevel">Trim</label>
 				</div>
 
 				<div class="form-floating">
 					<input type="text" class="form-control my-1" id="licensePlate" name="licensePlate"
-						value="<%= car.licensePlate %>" readonly>
+						value="<%= car.licensePlate %>" readonly disabled>
 					<label for="licensePlate">License Plate</label>
 				</div>
 
 				<div class="form-floating">
 					<input type="number" id="mileage" class="form-control my-1" id="mileage" name="mileage"
-						value="<%= car.mileage %>" readonly>
+						value="<%= car.mileage %>" readonly disabled>
 					<label for="mileage">Mileage</label>
 				</div>
 
 				<div class="form-floating">
 					<input type="text" class="form-control my-1" id="color" name="color" value="<%= car.color %>"
-						readonly>
+						readonly disabled>
 					<label for="color">Color</label>
 				</div>
 
 				<div class="form-floating">
 					<input type="text" class="form-control my-1" id="engine" name="engine" value="<%= car.engine %>"
-						readonly>
+						readonly disabled>
 					<label for="engine">Engine</label>
 				</div>
 
 				<div class="form-floating">
 					<input type="text" class="form-control my-1" id="tireSize" name="tireSize"
-						value="<%= car.tireSize %>" readonly>
+						value="<%= car.tireSize %>" readonly disabled>
 					<label for="tireSize">Tire Size</label>
 				</div>
 

@@ -2,6 +2,7 @@
 <div class="d-flex flex-column flex-md-row pt-3 align-items-center">
 <ul class="breadcrumb">
 	<li class="breadcrumb-item"><a href="/customers" class="text-decoration-none text-primary">Customers</a></li>
+	<li class="breadcrumb-item active"><%= customer.first %> <%= customer.last %></li>
 </ul>
 </div>
 	<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
@@ -10,28 +11,28 @@
 				<h1 class="h3 mb-3 fw-normal text-primary"><%= customer.first %> <%= customer.last %></h1>
 	
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="first" name="first" value="<%= customer.first %>" readonly>
+					<input type="text" class="form-control my-1" id="first" name="first" value="<%= customer.first %>" readonly disabled>
 					<label for="first">First Name</label>
 				</div>
 	
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="last" name="last" value="<%= customer.last %>" readonly>
+					<input type="text" class="form-control my-1" id="last" name="last" value="<%= customer.last %>" readonly disabled>
 					<label for="last">Last Name</label>
 				</div>
 	
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="phone" name="phone" value="<%= customer.phone %>" readonly>
+					<input type="text" class="form-control my-1" id="phone" name="phone" value="<%= customer.phone %>" readonly disabled>
 					<label for="phone">Phone Number</label>
 				</div>
 	
 				<div class="form-floating">
-					<input type="email" class="form-control my-1" id="email" name="email" value="<%= customer.email %>" readonly>
+					<input type="email" class="form-control my-1" id="email" name="email" value="<%= customer.email %>" readonly disabled>
 					<label for="email">Email</label>
 				</div>
 	
 				<div class="form-floating">
 					<select type="text" class="form-select my-1" id="preferredCommunication"
-						name="preferredCommunication">
+						name="preferredCommunication" disabled>
 						<option value="call" <%=customer.preferredCommunication==='call' ? 'selected' : '' %>>call
 						</option>
 						<option value="text" <%=customer.preferredCommunication==='text' ? 'selected' : '' %>>text
