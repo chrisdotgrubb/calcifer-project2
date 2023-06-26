@@ -2,6 +2,37 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+const serviceSchema = new Schema({
+	date: {
+		type: Date,
+		required: true,
+	},
+	mileage: {
+		type: Number,
+		required: true,
+	},
+	description: {
+		type: String,
+		required: true
+	},
+	price: {
+		type: Number,
+		required: true,
+	},
+	isInShop: {
+		type: Boolean,
+		required: true,
+	},
+	isPickedUp: {
+		type: Boolean,
+		required: true,
+	},
+	isPaid: {
+		type: Boolean,
+		required: true,
+	},
+}, {timestamps: true});
+
 const carSchema = new Schema({
 	year: {
 		type: Number,
@@ -36,8 +67,8 @@ const carSchema = new Schema({
 	tireSize: {
 		type: String,
 	},
-}, {timestamps: true}
-);
+	services: [serviceSchema],
+}, {timestamps: true});
 
 
 const customerSchema = new Schema({

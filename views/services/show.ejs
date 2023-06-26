@@ -1,0 +1,74 @@
+<%- include('../partials/header') %>
+
+	<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+		<div class="form-group col-4 p-3">
+			<form action="/customers/<%= customer.id %>/cars/<%= car.id %>?_method=PUT" method="POST" class="mt-3">
+				<h1 class="h3 mb-3 fw-normal text-primary"><%= customer.last %> <%= car.model %></h1>
+
+				<div class="form-floating">
+					<input type="number" class="form-control my-1" id="year" name="year" value="<%= car.year %>"
+						readonly>
+					<label for="year">Year</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="text" class="form-control my-1" id="make" name="make" value="<%= car.make %>" readonly>
+					<label for="make">Make</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="text" class="form-control my-1" id="model" name="model" value="<%= car.model %>"
+						readonly>
+					<label for="model">Model</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="text" class="form-control my-1" id="trimLevel" name="trimLevel"
+						value="<%= car.trimLevel %>" readonly>
+					<label for="trimLevel">Trim</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="text" class="form-control my-1" id="licensePlate" name="licensePlate"
+						value="<%= car.licensePlate %>" readonly>
+					<label for="licensePlate">License Plate</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="number" id="mileage" class="form-control my-1" id="mileage" name="mileage"
+						value="<%= car.mileage %>" readonly>
+					<label for="mileage">Mileage</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="text" class="form-control my-1" id="color" name="color" value="<%= car.color %>"
+						readonly>
+					<label for="color">Color</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="text" class="form-control my-1" id="engine" name="engine" value="<%= car.engine %>"
+						readonly>
+					<label for="engine">Engine</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="text" class="form-control my-1" id="tireSize" name="tireSize"
+						value="<%= car.tireSize %>" readonly>
+					<label for="tireSize">Tire Size</label>
+				</div>
+
+			</form>
+			<div class="d-flex flex-column flex-md-row gap-5 align-items-center justify-content-center mt-3">
+				<form class="form-group" action="/customers/<%= customer.id %>/cars/<%= car.id %>/edit" method="GET">
+					<button class="btn btn-md btn-secondary" type="submit">Edit</button>
+				</form>
+				<form class="form-group" action="/customers/<%= customer.id %>/cars/<%= car.id %>?_method=DELETE"
+					method="POST">
+					<button class="btn btn-md btn-danger" type="submit">Delete</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+<%- include('../partials/footer') %>

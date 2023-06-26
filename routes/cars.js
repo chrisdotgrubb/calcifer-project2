@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router({mergeParams: true});
+const servicesRouter = require('./services');
 
 const carController = require('../controllers/cars');
 
+//			'/customers/:customerId/cars'
 
-//		'/customers/:customerId/cars'
+router.use('/:customerId/cars/:carId/services', servicesRouter);
 
 router.get('/', carController.index);
 router.get('/new', carController.new);

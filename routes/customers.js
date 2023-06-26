@@ -4,9 +4,9 @@ const carsRouter = require('./cars');
 
 const customerController = require('../controllers/customers');
 
-router.use('/:customerId/cars', carsRouter);
+//			'/customers'
 
-//		'/customers'
+router.use('/:customerId/cars', carsRouter);
 
 router.get('/', customerController.index);
 router.get('/new', customerController.new);
