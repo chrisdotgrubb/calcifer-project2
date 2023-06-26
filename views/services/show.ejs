@@ -3,8 +3,7 @@
 	<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
 		<div class="form-group col-4 p-3">
 			<form action="/customers/<%= customer.id %>/cars/<%= car.id %>/services/<%= service.id %>?_method=PUT" method="POST" class="mt-3">
-				<h1 class="h3 mb-3 fw-normal text-primary"><%= customer.last %> <%= car.model %></h1>
-				<h2 class="text-center my-4"><%= car.make %> <%= car.model %></h2>
+				<h1 class="h3 mb-3 fw-normal text-primary"><%= customer.last %> <%= car.make %> <%= car.model %></h1>
 
 				<div class="form-floating">
 					<input type="date" class="form-control my-1" id="date" name="date" value="<%= service.date %>"
@@ -29,22 +28,19 @@
 					<label for="price">Price</label>
 				</div>
 
-				<div class="form-floating">
-					<input type="checkbox" class="form-control my-1" id="isInShop" name="isInShop"
-						value="<%= service.isInShop %>" readonly>
-					<label for="isInShop">isInShop</label>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input my-1" id="isInShop" name="isInShop" <%= service.isInShop ? 'checked' : '' %> disabled>
+					<label for="isInShop">Is getting worked on now</label>
 				</div>
 
-				<div class="form-floating">
-					<input type="checkbox" class="form-control my-1" id="isPickedUp" name="isPickedUp"
-						value="<%= service.isPickedUp %>" readonly>
-					<label for="isPickedUp">isPickedUp</label>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input my-1" id="isPickedUp" name="isPickedUp" <%= service.isPickedUp ? 'checked' : '' %> disabled>
+					<label for="isPickedUp">Customer picked up</label>
 				</div>
 
-				<div class="form-floating">
-					<input type="checkbox" class="form-control my-1" id="isPaid" name="isPaid"
-						value="<%= service.isPaid %>" readonly>
-					<label for="isPaid">isPaid</label>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input my-1" id="isPaid" name="isPaid" <%= service.isPaid ? 'checked' : '' %> disabled>
+					<label for="isPaid">Is paid</label>
 				</div>
 
 			</form>

@@ -5,49 +5,45 @@
 				<h1 class="h3 mb-3 fw-normal">Edit Car</h1>
 
 				<div class="form-floating">
-					<input type="number" class="form-control my-1" min="1900" max="2100" id="year" name="year"
-						value="<%= car.year %>">
-					<label for="year">Year</label>
+					<input type="date" class="form-control my-1" id="date" name="date" value="<%= service.date %>">
+					<label for="date">Date</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="make" name="make" value="<%= car.make %>">
-					<label for="make">Make</label>
-				</div>
-
-				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="model" name="model" value="<%= car.model %>">
-					<label for="model">Model</label>
-				</div>
-
-				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="trimLevel" name="trimLevel" value="<%= car.trimLevel %>">
-					<label for="trimLevel">Trim</label>
-				</div>
-
-				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="licensePlate" name="licensePlate" value="<%= car.licensePlate %>">
-					<label for="licensePlate">License Plate</label>
-				</div>
-
-				<div class="form-floating">
-					<input type="number" min="0" max="2000000" id="mileage" class="form-control my-1" id="mileage" name="mileage" value="<%= car.mileage %>">
+					<input type="number" id="mileage" class="form-control my-1" id="mileage" name="mileage"
+						value="<%= service.mileage %>">
 					<label for="mileage">Mileage</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="color" name="color" value="<%= car.color %>">
-					<label for="color">Color</label>
+					<input type="text" class="form-control my-1" id="description" name="description" value="<%= service.description %>">
+					<label for="description">Description</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="engine" name="engine" value="<%= car.engine %>">
-					<label for="engine">Engine</label>
+					<input type="number" class="form-control my-1" id="price" name="price" value="$<%= service.price %>">
+					<label for="price">Price</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="tireSize" name="tireSize" value="<%= car.tireSize %>">
-					<label for="tireSize">Tire Size</label>
+					<input type="checkbox" class="form-control my-1" id="isInShop" name="isInShop"
+						value="<%= service.isInShop %>">
+					<label for="isInShop">isInShop</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="checkbox" class="form-control my-1" id="isPickedUp" name="isPickedUp"
+						value="<%= service.isPickedUp %>">
+					<label for="isPickedUp">isPickedUp</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="checkbox" class="form-control my-1" id="isPaid" name="isPaid"
+						value="<%= service.isPaid %>">
+					<label for="isPaid">isPaid</label>
+				</div>
+				<div class="text-center">
+					<button class="btn btn-primary w-25 my-2" type="submit">Add Service</button>
 				</div>
 
 				<div class="text-center">

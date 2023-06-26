@@ -7,11 +7,11 @@ const servicesController = require('../controllers/services');
 
 
 router.get('/', servicesController.index);
-// router.get('/new', servicesController.new);
+router.get('/new', servicesController.new);
 // router.get('/:serviceId/edit', servicesController.edit);
-// router.get('/:serviceId', servicesController.show);
+router.get('/:serviceId', servicesController.show);
 
-// router.post('/', servicesController.create);
+router.post('/', servicesController.create);
 
 // router.put('/:serviceId', servicesController.update);
 

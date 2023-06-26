@@ -60,6 +60,9 @@
 
 			</form>
 			<div class="d-flex flex-column flex-md-row gap-5 align-items-center justify-content-center mt-3">
+				<form class="form-group" action="/customers/<%= customer.id %>/cars/<%= car.id %>/services" method="GET">
+					<button class="btn btn-md btn-primary" type="submit">Services</button>
+				</form>
 				<form class="form-group" action="/customers/<%= customer.id %>/cars/<%= car.id %>/edit" method="GET">
 					<button class="btn btn-md btn-secondary" type="submit">Edit</button>
 				</form>
