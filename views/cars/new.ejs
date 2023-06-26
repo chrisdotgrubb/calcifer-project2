@@ -1,14 +1,61 @@
 <%- include('../partials/header') %>
-	<form action="/customers/<%= customer.id %>/cars" method="POST">
-		<input type="number" min="1900" max="2100" id="year" name="year"></input>
-		<input type="text" id="make" name="make"></input>
-		<input type="text" id="model" name="model"></input>
-		<input type="text" id="trimLevel" name="trimLevel"></input>
-		<input type="text" id="licensePlate" name="licensePlate"></input>
-		<input type="number" min="0" max="2000000" id="mileage" name="mileage"></input>
-		<input type="text" id="color" name="color"></input>
-		<input type="text" id="engine" name="engine"></input>
-		<input type="text" id="tireSize" name="tireSize"></input>
-		<button type="submit">Submit</button>
-	</form>
+	<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+		<div class="form-group col-4 p-3">
+			<form action="/customers/<%= customer.id %>/cars" method="POST" class="mt-3">
+				<h1 class="h3 mb-3 fw-normal">Add New Car for <%= customer.first %></h1>
+
+				<div class="form-floating">
+					<input type="number" class="form-control my-1" min="1900" max="2100" id="year" name="year">
+					<label for="year">Year</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="text" class="form-control my-1" id="make" name="make">
+					<label for="make">Make</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="text" class="form-control my-1" id="model" name="model">
+					<label for="model">Model</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="text" class="form-control my-1" id="trimLevel" name="trimLevel">
+					<label for="trimLevel">Trim</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="text" class="form-control my-1" id="licensePlate" name="licensePlate">
+					<label for="licensePlate">License Plate</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="number" min="0" max="2000000" id="mileage" class="form-control my-1" id="mileage" name="mileage">
+					<label for="mileage">Mileage</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="text" class="form-control my-1" id="color" name="color">
+					<label for="color">Color</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="text" class="form-control my-1" id="engine" name="engine">
+					<label for="engine">Engine</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="text" class="form-control my-1" id="tireSize" name="tireSize">
+					<label for="tireSize">Tire Size</label>
+				</div>
+
+				<div class="text-center">
+					<button class="btn btn-primary w-25 my-2" type="submit">Add Car</button>
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+
 <%- include('../partials/footer') %>
