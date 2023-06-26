@@ -64,7 +64,10 @@ async function newService(req, res) {
 		const car = customer.cars.id(carId);
 		const context = {
 			customer,
-			car
+			car,
+			err: {
+				errors: '',
+			},
 		};
 		res.render('services/new', context);
 	} catch (err) {
@@ -80,22 +83,27 @@ async function newService(req, res) {
 async function create(req, res) {
 	const customerId = req.params.customerId;
 	const carId = req.params.carId;
-	console.log(req.body);
 	req.body.isInShop = !!req.body.isInShop;
 	req.body.isPickedUp = !!req.body.isPickedUp;
 	req.body.isPaid = !!req.body.isPaid;
+	let customer;
+	let car;
 	try {
-		const customer = await Customer.findById(customerId);
-		const car = customer.cars.id(carId);
+		customer = await Customer.findById(customerId);
+		car = customer.cars.id(carId);
 		car.services.push(req.body);
 		await customer.save();
 		res.redirect(`/customers/${customerId}/cars/${carId}/services`);
 	} catch (err) {
+		const errKeys = Object.keys(err.errors);
 		const context = {
-			error: err,
+			customer,
+			car,
+			err,
+			errKeys,
 			message: err.message,
 		};
-		res.render('error', context);
+		res.render('services/new', context);
 	};
 }
 
@@ -133,6 +141,9 @@ async function edit(req, res) {
 			car,
 			service,
 			service_date,
+			err: {
+				errors: '',
+			},
 		};
 		res.render('services/edit', context);
 	} catch (err) {
@@ -162,13 +173,15 @@ async function update(req, res) {
 		res.redirect(`/customers/${customerId}/cars/${carId}/services/${serviceId}`);
 	} catch (err) {
 		console.log(err);
+		const errKeys = Object.keys(err.errors);
 		const context = {
 			customer,
 			// add carId so form action has access to it after validation error
 			car: {id: carId},
 			service: body,
 			service_date: body.date,
-			error: err,
+			err,
+			errKeys,
 		};
 		// add serviceId so form action has access to it after validation error
 		context.service.id = serviceId;

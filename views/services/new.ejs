@@ -1,54 +1,86 @@
 <%- include('../partials/header') %>
-<div class="d-flex flex-column flex-md-row pt-3 align-items-center">
-	<ul class="breadcrumb">
-		<li class="breadcrumb-item"><a href="/customers" class="text-decoration-none text-primary">Customers</a></li>
-		<li class="breadcrumb-item"><a href="/customers/<%= customer.id %>" class="text-decoration-none text-primary"><%= customer.first %> <%= customer.last %></a></li>
-		<li class="breadcrumb-item"><a href="/customers/<%= customer.id %>/cars" class="text-decoration-none text-primary">Cars</a></li>
-		<li class="breadcrumb-item"><a href="/customers/<%= customer.id %>/cars/<%= car.id %>" class="text-decoration-none text-primary"><%= car.model %></a></li>
-		<li class="breadcrumb-item"><a href="/customers/<%= customer.id %>/cars/<%= car.id %>/services" class="text-decoration-none text-primary">Services</a></li>
-		<li class="breadcrumb-item">New Service</li>
-	</ul>
-</div>
+	<div class="d-flex flex-column flex-md-row pt-3 align-items-center">
+		<ul class="breadcrumb">
+			<li class="breadcrumb-item"><a href="/customers" class="text-decoration-none text-primary">Customers</a>
+			</li>
+			<li class="breadcrumb-item"><a href="/customers/<%= customer.id %>"
+					class="text-decoration-none text-primary">
+					<%= customer.first %>
+						<%= customer.last %>
+				</a></li>
+			<li class="breadcrumb-item"><a href="/customers/<%= customer.id %>/cars"
+					class="text-decoration-none text-primary">Cars</a></li>
+			<li class="breadcrumb-item"><a href="/customers/<%= customer.id %>/cars/<%= car.id %>"
+					class="text-decoration-none text-primary">
+					<%= car.model %>
+				</a></li>
+			<li class="breadcrumb-item"><a href="/customers/<%= customer.id %>/cars/<%= car.id %>/services"
+					class="text-decoration-none text-primary">Services</a></li>
+			<li class="breadcrumb-item">New Service</li>
+		</ul>
+	</div>
 	<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
 		<div class="form-group col-4 p-3">
 			<form action="/customers/<%= customer.id %>/cars/<%= car.id %>/services" method="POST" class="mt-3">
-				<h1 class="h3 mb-3 fw-normal">Add New Service for <%= car.model %></h1>
+				<h1 class="h3 mb-3 fw-normal">Add New Service for <%= car.model %>
+				</h1>
 
 				<div class="form-floating">
-					<input type="date" class="form-control my-1" id="date" name="date">
+					<input type="date" class="form-control my-1
+					<% if (err.errors) { %>
+						<%= errKeys.some(e => e.includes('date')) ? 'is-invalid' : '' %>
+					<% } %>" id="date" name="date">
 					<label for="date">Date</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="number" id="mileage" class="form-control my-1" id="mileage" name="mileage">
+					<input type="number" id="mileage" class="form-control my-1
+					<% if (err.errors) { %>
+						<%= errKeys.some(e => e.includes('mileage')) ? 'is-invalid' : '' %>
+					<% } %>" id="mileage" name="mileage">
 					<label for="mileage">Mileage</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="description" name="description">
+					<input type="text" class="form-control my-1
+					<% if (err.errors) { %>
+						<%= errKeys.some(e => e.includes('description')) ? 'is-invalid' : '' %>
+					<% } %>" id="description" name="description">
 					<label for="description">Description</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="number" min="0.00" step="0.01" class="form-control my-1" id="price" name="price">
+					<input type="number" min="0.00" step="0.01" class="form-control my-1
+					<% if (err.errors) { %>
+						<%= errKeys.some(e => e.includes('price')) ? 'is-invalid' : '' %>
+					<% } %>" id="price" name="price">
 					<label for="price">Price</label>
 				</div>
 
 				<div class="form-check">
-					<input type="checkbox" class="form-check-input my-1" id="isInShop" name="isInShop">
+					<input type="checkbox" class="form-check-input my-1
+					<% if (err.errors) { %>
+						<%= errKeys.some(e => e.includes('isInShop')) ? 'is-invalid' : '' %>
+					<% } %>" id="isInShop" name="isInShop">
 					<label for="isInShop">Is getting worked on now</label>
 				</div>
 
 				<div class="form-check">
-					<input type="checkbox" class="form-check-input my-1" id="isPickedUp" name="isPickedUp">
+					<input type="checkbox" class="form-check-input my-1
+					<% if (err.errors) { %>
+						<%= errKeys.some(e => e.includes('isPickedUp')) ? 'is-invalid' : '' %>
+					<% } %>" id="isPickedUp" name="isPickedUp">
 					<label for="isPickedUp">Customer picked up</label>
 				</div>
 
 				<div class="form-check">
-					<input type="checkbox" class="form-check-input my-1" id="isPaid" name="isPaid">
+					<input type="checkbox" class="form-check-input my-1
+					<% if (err.errors) { %>
+						<%= errKeys.some(e => e.includes('isPaid')) ? 'is-invalid' : '' %>
+					<% } %>" id="isPaid" name="isPaid">
 					<label for="isPaid">Is paid</label>
 				</div>
-				
+
 				<div class="text-center">
 					<button class="btn btn-primary w-25 my-2" type="submit">Add Service</button>
 				</div>
@@ -58,4 +90,4 @@
 		</div>
 	</div>
 
-<%- include('../partials/footer') %>
+	<%- include('../partials/footer') %>
