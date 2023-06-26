@@ -2,68 +2,57 @@
 
 	<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
 		<div class="form-group col-4 p-3">
-			<form action="/customers/<%= customer.id %>/cars/<%= car.id %>?_method=PUT" method="POST" class="mt-3">
+			<form action="/customers/<%= customer.id %>/cars/<%= car.id %>/services/<%= service.id %>?_method=PUT" method="POST" class="mt-3">
 				<h1 class="h3 mb-3 fw-normal text-primary"><%= customer.last %> <%= car.model %></h1>
+				<h2 class="text-center my-4"><%= car.make %> <%= car.model %></h2>
 
 				<div class="form-floating">
-					<input type="number" class="form-control my-1" id="year" name="year" value="<%= car.year %>"
+					<input type="date" class="form-control my-1" id="date" name="date" value="<%= service.date %>"
 						readonly>
-					<label for="year">Year</label>
-				</div>
-
-				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="make" name="make" value="<%= car.make %>" readonly>
-					<label for="make">Make</label>
-				</div>
-
-				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="model" name="model" value="<%= car.model %>"
-						readonly>
-					<label for="model">Model</label>
-				</div>
-
-				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="trimLevel" name="trimLevel"
-						value="<%= car.trimLevel %>" readonly>
-					<label for="trimLevel">Trim</label>
-				</div>
-
-				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="licensePlate" name="licensePlate"
-						value="<%= car.licensePlate %>" readonly>
-					<label for="licensePlate">License Plate</label>
+					<label for="date">Date</label>
 				</div>
 
 				<div class="form-floating">
 					<input type="number" id="mileage" class="form-control my-1" id="mileage" name="mileage"
-						value="<%= car.mileage %>" readonly>
+						value="<%= service.mileage %>" readonly>
 					<label for="mileage">Mileage</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="color" name="color" value="<%= car.color %>"
-						readonly>
-					<label for="color">Color</label>
+					<input type="text" class="form-control my-1" id="description" name="description" value="<%= service.description %>" readonly>
+					<label for="description">Description</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="engine" name="engine" value="<%= car.engine %>"
+					<input type="number" class="form-control my-1" id="price" name="price" value="$<%= service.price %>"
 						readonly>
-					<label for="engine">Engine</label>
+					<label for="price">Price</label>
 				</div>
 
 				<div class="form-floating">
-					<input type="text" class="form-control my-1" id="tireSize" name="tireSize"
-						value="<%= car.tireSize %>" readonly>
-					<label for="tireSize">Tire Size</label>
+					<input type="checkbox" class="form-control my-1" id="isInShop" name="isInShop"
+						value="<%= service.isInShop %>" readonly>
+					<label for="isInShop">isInShop</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="checkbox" class="form-control my-1" id="isPickedUp" name="isPickedUp"
+						value="<%= service.isPickedUp %>" readonly>
+					<label for="isPickedUp">isPickedUp</label>
+				</div>
+
+				<div class="form-floating">
+					<input type="checkbox" class="form-control my-1" id="isPaid" name="isPaid"
+						value="<%= service.isPaid %>" readonly>
+					<label for="isPaid">isPaid</label>
 				</div>
 
 			</form>
 			<div class="d-flex flex-column flex-md-row gap-5 align-items-center justify-content-center mt-3">
-				<form class="form-group" action="/customers/<%= customer.id %>/cars/<%= car.id %>/edit" method="GET">
+				<form class="form-group" action="/customers/<%= customer.id %>/cars/<%= car.id %>/services/<%= service.id %>/edit" method="GET">
 					<button class="btn btn-md btn-secondary" type="submit">Edit</button>
 				</form>
-				<form class="form-group" action="/customers/<%= customer.id %>/cars/<%= car.id %>?_method=DELETE"
+				<form class="form-group" action="/customers/<%= customer.id %>/cars/<%= car.id %>/services/<%= service.id %>?_method=DELETE"
 					method="POST">
 					<button class="btn btn-md btn-danger" type="submit">Delete</button>
 				</form>
