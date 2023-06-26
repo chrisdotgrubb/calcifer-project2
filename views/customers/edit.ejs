@@ -12,27 +12,42 @@
 			<h1 class="h3 mb-3 fw-normal">Edit Customer</h1>
 
 			<div class="form-floating">
-				<input type="text" class="form-control my-1 <%= err.errors.first ? 'bg-info' : '' %>" id="first" name="first" value="<%= customer.first %>">
+				<input type="text" class="form-control my-1
+				<% if (err.errors) { %>
+					<%= err.errors.first ? 'is-invalid' : '' %>
+				<% } %>" id="first" name="first" value="<%= customer.first %>">
 				<label for="first">First Name</label>
 			</div>
 
 			<div class="form-floating">
-				<input type="text" class="form-control my-1 <%= err.errors.last ? 'bg-info' : '' %>" id="last" name="last" value="<%= customer.last %>">
+				<input type="text" class="form-control my-1
+				<% if (err.errors) { %>
+					<%= err.errors.last ? 'is-invalid' : '' %>
+				<% } %>" id="last" name="last" value="<%= customer.last %>">
 				<label for="last">Last Name</label>
 			</div>
 
 			<div class="form-floating">
-				<input type="text" class="form-control my-1 <%= err.errors.phone ? 'bg-info' : '' %>" id="phone" name="phone" value="<%= customer.phone %>">
+				<input type="text" class="form-control my-1
+				<% if (err.errors) { %>
+					<%= err.errors.phone ? 'is-invalid' : '' %>
+				<% } %>" id="phone" name="phone" value="<%= customer.phone %>">
 				<label for="phone">Phone Number</label>
 			</div>
 
 			<div class="form-floating">
-				<input type="email" class="form-control my-1 <%= err.errors.email ? 'bg-info' : '' %>" id="email" name="email" value="<%= customer.email %>">
+				<input type="email" class="form-control my-1
+				<% if (err.errors) { %>
+					<%= err.errors.email ? 'is-invalid' : '' %>
+				<% } %>" id="email" name="email" value="<%= customer.email %>">
 				<label for="email">Email</label>
 			</div>
 
 			<div class="form-floating">
-				<select type="text" class="form-select my-1 <%= err.errors.preferredCommunication ? 'bg-info' : '' %>" id="preferredCommunication"
+				<select type="text" class="form-select my-1
+				<% if (err.errors) { %>
+					<%= err.errors.preferredCommunication ? 'is-invalid' : '' %>
+				<% } %>" id="preferredCommunication"
 					name="preferredCommunication">
 					<option value="call" <%=customer.preferredCommunication==='call' ? 'selected' : '' %>>call
 					</option>

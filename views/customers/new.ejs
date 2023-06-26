@@ -11,27 +11,42 @@
 			<h1 class="h3 mb-3 fw-normal">New Customer</h1>
 
 			<div class="form-floating">
-				<input type="text" class="form-control my-1 <%= err.errors.first ? 'bg-info' : '' %>" id="first" name="first">
+				<input type="text" class="form-control my-1
+				<% if (err.errors) { %>
+					<%= err.errors.first ? 'is-invalid' : '' %>
+				<% } %>" id="first" name="first">
 				<label for="first">First Name</label>
 			</div>
 
 			<div class="form-floating">
-				<input type="text" class="form-control my-1 <%= err.errors.last ? 'bg-info' : '' %>" id="last" name="last">
+				<input type="text" class="form-control my-1
+				<% if (err.errors) { %>
+						<%= err.errors.last ? 'is-invalid' : '' %>
+					<% } %>" id="last" name="last">
 				<label for="last">Last Name</label>
 			</div>
 
 			<div class="form-floating">
-				<input type="text" class="form-control my-1 <%= err.errors.phone ? 'bg-info' : '' %>" id="phone" name="phone">
+				<input type="text" class="form-control my-1
+				<% if (err.errors) { %>
+						<%= err.errors.phone ? 'is-invalid' : '' %>
+					<% } %>" id="phone" name="phone">
 				<label for="phone">Phone Number</label>
 			</div>
 
 			<div class="form-floating">
-				<input type="email" class="form-control my-1 <%= err.errors.email ? 'bg-info' : '' %>" id="email" name="email">
+				<input type="email" class="form-control my-1
+				<% if (err.errors) { %>
+						<%= err.errors.email ? 'is-invalid' : '' %>
+					<% } %>" id="email" name="email">
 				<label for="email">Email</label>
 			</div>
 			
 			<div class="form-floating">
-				<select type="text" class="form-select my-1 <%= err.errors.preferredCommunication ? 'bg-info' : '' %>" id="preferredCommunication" name="preferredCommunication">
+				<select type="text" class="form-select my-1
+				<% if (err.errors) { %>
+						<%= err.errors.preferredCommunication ? 'is-invalid' : '' %>
+					<% } %>" id="preferredCommunication" name="preferredCommunication">
 					<option value="call">call</option>
 					<option value="text">text</option>
 					<option value="email">email</option>
