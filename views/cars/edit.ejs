@@ -16,7 +16,7 @@
 				<div class="form-floating">
 					<input type="number" class="form-control my-1 
 					<% if (err.errors) { %>
-						<%= err.errors[`cars.${index}.year`] ? 'is-invalid' : '' %>
+						<%= errKeys.some(e => e.includes('year')) ? 'is-invalid' : '' %>
 					<% } %>" min="1900" max="2100" id="year" name="year"
 						value="<%= car.year %>">
 					<label for="year">Year</label>
@@ -25,7 +25,7 @@
 				<div class="form-floating">
 					<input type="text" class="form-control my-1
 					<% if (err.errors) { %>
-						<%= err.errors[`cars.${index}.make`] ? 'is-invalid' : '' %>
+						<%= errKeys.some(e => e.includes('make')) ? 'is-invalid' : '' %>
 					<% } %>" id="make" name="make" value="<%= car.make %>">
 					<label for="make">Make</label>
 				</div>
@@ -33,7 +33,7 @@
 				<div class="form-floating">
 					<input type="text" class="form-control my-1
 					<% if (err.errors) { %>
-						<%= err.errors[`cars.${index}.model`] ? 'is-invalid' : '' %>
+						<%= errKeys.some(e => e.includes('model')) ? 'is-invalid' : '' %>
 					<% } %>" id="model" name="model" value="<%= car.model %>">
 					<label for="model">Model</label>
 				</div>
@@ -41,7 +41,7 @@
 				<div class="form-floating">
 					<input type="text" class="form-control my-1
 					<% if (err.errors) { %>
-						<%= err.errors[`cars.${index}.trimLevel`] ? 'is-invalid' : '' %>
+						<%= errKeys.some(e => e.includes('trimLevel')) ? 'is-invalid' : '' %>
 					<% } %>" id="trimLevel" name="trimLevel" value="<%= car.trimLevel %>">
 					<label for="trimLevel">Trim</label>
 				</div>
@@ -49,7 +49,7 @@
 				<div class="form-floating">
 					<input type="text" class="form-control my-1
 					<% if (err.errors) { %>
-						<%= err.errors[`cars.${index}.licensePlate`] ? 'is-invalid' : '' %>
+						<%= errKeys.some(e => e.includes('licensePlate')) ? 'is-invalid' : '' %>
 					<% } %>" id="licensePlate" name="licensePlate" value="<%= car.licensePlate %>">
 					<label for="licensePlate">License Plate</label>
 				</div>
@@ -57,7 +57,7 @@
 				<div class="form-floating">
 					<input type="number" min="0" max="2000000" id="mileage" class="form-control my-1
 					<% if (err.errors) { %>
-						<%= err.errors[`cars.${index}.mileage`] ? 'is-invalid' : '' %>
+						<%= errKeys.some(e => e.includes('mileage')) ? 'is-invalid' : '' %>
 					<% } %>" id="mileage" name="mileage" value="<%= car.mileage %>">
 					<label for="mileage">Mileage</label>
 				</div>
@@ -65,7 +65,7 @@
 				<div class="form-floating">
 					<input type="text" class="form-control my-1
 					<% if (err.errors) { %>
-						<%= err.errors[`cars.${index}.color`] ? 'is-invalid' : '' %>
+						<%= errKeys.some(e => e.includes('color')) ? 'is-invalid' : '' %>
 					<% } %>" id="color" name="color" value="<%= car.color %>">
 					<label for="color">Color</label>
 				</div>
@@ -73,7 +73,7 @@
 				<div class="form-floating">
 					<input type="text" class="form-control my-1
 					<% if (err.errors) { %>
-						<%= err.errors[`cars.${index}.engine`] ? 'is-invalid' : '' %>
+						<%= errKeys.some(e => e.includes('engine')) ? 'is-invalid' : '' %>
 					<% } %>" id="engine" name="engine" value="<%= car.engine %>">
 					<label for="engine">Engine</label>
 				</div>
@@ -81,7 +81,7 @@
 				<div class="form-floating">
 					<input type="text" class="form-control my-1
 					<% if (err.errors) { %>
-						<%= err.errors[`cars.${index}.tireSize`] ? 'is-invalid' : '' %>
+						<%= errKeys.some(e => e.includes('tireSize')) ? 'is-invalid' : '' %>
 					<% } %>" id="tireSize" name="tireSize" value="<%= car.tireSize %>">
 					<label for="tireSize">Tire Size</label>
 				</div>

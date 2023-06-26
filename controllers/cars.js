@@ -80,16 +80,11 @@ async function create(req, res) {
 		res.redirect(`/customers/${customerId}/cars`);
 	} catch (err) {
 		if (customer) {
-			console.log(err.errors);
-			let index = 0;
-			if (err._message === 'Customer validation failed') {
-				// get the embedded model's index, since error comes back like: err.errors['cars.0.make']
-				index = Object.keys(err.errors)[0].match(/cars\.(\d*)\..*/)[1];
-			}
+			const errKeys = Object.keys(err.errors);
 			const context = {
 				customer,
 				err,
-				index,
+				errKeys,
 				message: err.message,
 			};
 			res.render('cars/new', context);
@@ -157,16 +152,12 @@ async function update(req, res) {
 		await customer.save();
 		res.redirect(`/customers/${customerId}/cars/${carId}`);
 	} catch (err) {
-		let index = 0;
-		if (err._message === 'Customer validation failed') {
-			// get the embedded model's index, since error comes back like: err.errors['cars.0.make']
-			index = Object.keys(err.errors)[0].match(/cars\.(\d*)\..*/)[1];
-		};
+		const errKeys = Object.keys(err.errors);
 		const context = {
 			customer,
 			car: body,
 			err,
-			index,
+			errKeys,
 		};
 		// add carId so form action has access to it after validation error
 		context.car.id = carId;
