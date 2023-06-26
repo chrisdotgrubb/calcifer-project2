@@ -5,19 +5,19 @@ const Schema = mongoose.Schema;
 const serviceSchema = new Schema({
 	date: {
 		type: Date,
-		required: true,
+		required: [true, 'Date is required.'],
 	},
 	mileage: {
 		type: Number,
-		required: true,
+		required: [true, 'Mileage is required.'],
 	},
 	description: {
 		type: String,
-		required: true
+		required: [true, 'Description is required.']
 	},
 	price: {
 		type: Number,
-		required: true,
+		required: [true, 'Price is required.'],
 	},
 	isInShop: {
 		type: Boolean,
@@ -36,33 +36,33 @@ const serviceSchema = new Schema({
 const carSchema = new Schema({
 	year: {
 		type: Number,
-		required: true,
+		required: [true, 'Year is required.'],
 	},
 	make: {
 		type: String,
-		required: true,
+		required: [true, 'Make is required.'],
 	},
 	model: {
 		type: String,
-		required: true,
+		required: [true, 'Model is required.'],
 	},
 	trimLevel: {
 		type: String,
-		required: true,
+		required: [true, 'Trim level is required.'],
 	},
 	licensePlate: {
 		type: String,
 	},
 	mileage: {
 		type: Number,
-		required: true,
+		required: [true, 'Mileage is required.'],
 	},
 	color: {
 		type: String,
 	},
 	engine: {
 		type: String,
-		required: true,
+		required: [true, 'Engine is required.'],
 	},
 	tireSize: {
 		type: String,
@@ -74,23 +74,23 @@ const carSchema = new Schema({
 const customerSchema = new Schema({
 	first: {
 		type: String,
-		required: true,
+		required: [true, 'First name is required.'],
 	},
 	last: {
 		type: String,
-		required: true,
+		required: [true, 'Last name is required.'],
 	},
 	phone: {
 		type: String,
-		required: true,
+		required: [true, 'Phone number is required.'],
 	},
 	email: {
 		type: String,
-		required: true,
+		required: [true, 'Email is required.'],
 	},
 	preferredCommunication: {
 		type: String,
-		required: true,
+		required: [true, 'Communication preference is required.'],
 	},
 	cars: [carSchema],
 }, {timestamps: true});

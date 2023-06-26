@@ -11,33 +11,41 @@
 			<h1 class="h3 mb-3 fw-normal">New Customer</h1>
 
 			<div class="form-floating">
-				<input type="text" class="form-control my-1" id="first" name="first">
+				<input type="text" class="form-control my-1 <%= err.errors.first ? 'bg-info' : '' %>" id="first" name="first">
 				<label for="first">First Name</label>
 			</div>
 
 			<div class="form-floating">
-				<input type="text" class="form-control my-1" id="last" name="last">
+				<input type="text" class="form-control my-1 <%= err.errors.last ? 'bg-info' : '' %>" id="last" name="last">
 				<label for="last">Last Name</label>
 			</div>
 
 			<div class="form-floating">
-				<input type="text" class="form-control my-1" id="phone" name="phone">
+				<input type="text" class="form-control my-1 <%= err.errors.phone ? 'bg-info' : '' %>" id="phone" name="phone">
 				<label for="phone">Phone Number</label>
 			</div>
 
 			<div class="form-floating">
-				<input type="email" class="form-control my-1" id="email" name="email">
+				<input type="email" class="form-control my-1 <%= err.errors.email ? 'bg-info' : '' %>" id="email" name="email">
 				<label for="email">Email</label>
 			</div>
 			
 			<div class="form-floating">
-				<select type="text" class="form-select my-1" id="preferredCommunication" name="preferredCommunication">
+				<select type="text" class="form-select my-1 <%= err.errors.preferredCommunication ? 'bg-info' : '' %>" id="preferredCommunication" name="preferredCommunication">
 					<option value="call">call</option>
 					<option value="text">text</option>
 					<option value="email">email</option>
 				</select>
 				<label for="preferredCommunication">Preferred Communication</label>
 			</div>
+
+			<% if (err.errors) { %>
+				<% for (const e in err.errors) { %>
+					<div class="text-center">
+						<h6><%= err.errors[e].message %></h6>
+					</div>
+				<% }; %>
+			<% } %>
 
 			<div class="text-center">
 				<button class="btn btn-primary w-25 my-2" type="submit">Add Customer</button>

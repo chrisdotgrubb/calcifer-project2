@@ -46,7 +46,11 @@ async function show(req, res) {
 }
 
 function newCustomer(req, res) {
-	const context = {};
+	const context = {
+		err: {
+			errors: '',
+		},
+	};
 	res.render('customers/new', context);
 }
 
@@ -55,11 +59,12 @@ async function create(req, res) {
 		await Customer.create(req.body);
 		res.redirect('/customers');
 	} catch (err) {
+		console.log(err);
 		const context = {
-			error: err,
+			err,
 			message: err.message,
 		};
-		res.render('error', context);
+		res.render('customers/new', context);
 	};
 }
 
@@ -82,6 +87,9 @@ async function edit(req, res) {
 	try {
 		const customer = await Customer.findById(id);
 		const context = {
+			err: {
+				errors: '',
+			},
 			customer,
 		};
 		res.render('customers/edit', context);
@@ -106,7 +114,7 @@ async function update(req, res) {
 		// if can't find object, redirect with error
 		const context = {
 			customer: body,
-			error: err,
+			err,
 		};
 		// add customer id so form action has access to it after validation error
 		context.customer.id = id;

@@ -12,27 +12,27 @@
 			<h1 class="h3 mb-3 fw-normal">Edit Customer</h1>
 
 			<div class="form-floating">
-				<input type="text" class="form-control my-1" id="first" name="first" value="<%= customer.first %>">
+				<input type="text" class="form-control my-1 <%= err.errors.first ? 'bg-info' : '' %>" id="first" name="first" value="<%= customer.first %>">
 				<label for="first">First Name</label>
 			</div>
 
 			<div class="form-floating">
-				<input type="text" class="form-control my-1" id="last" name="last" value="<%= customer.last %>">
+				<input type="text" class="form-control my-1 <%= err.errors.last ? 'bg-info' : '' %>" id="last" name="last" value="<%= customer.last %>">
 				<label for="last">Last Name</label>
 			</div>
 
 			<div class="form-floating">
-				<input type="text" class="form-control my-1" id="phone" name="phone" value="<%= customer.phone %>">
+				<input type="text" class="form-control my-1 <%= err.errors.phone ? 'bg-info' : '' %>" id="phone" name="phone" value="<%= customer.phone %>">
 				<label for="phone">Phone Number</label>
 			</div>
 
 			<div class="form-floating">
-				<input type="email" class="form-control my-1" id="email" name="email" value="<%= customer.email %>">
+				<input type="email" class="form-control my-1 <%= err.errors.email ? 'bg-info' : '' %>" id="email" name="email" value="<%= customer.email %>">
 				<label for="email">Email</label>
 			</div>
 
 			<div class="form-floating">
-				<select type="text" class="form-select my-1" id="preferredCommunication"
+				<select type="text" class="form-select my-1 <%= err.errors.preferredCommunication ? 'bg-info' : '' %>" id="preferredCommunication"
 					name="preferredCommunication">
 					<option value="call" <%=customer.preferredCommunication==='call' ? 'selected' : '' %>>call
 					</option>
@@ -43,6 +43,14 @@
 				</select>
 				<label for="preferredCommunication">Preferred Communication</label>
 			</div>
+
+			<% if (err.errors) { %>
+				<% for (const e in err.errors) { %>
+					<div class="text-center">
+						<h6><%= err.errors[e].message %></h6>
+					</div>
+				<% }; %>
+			<% } %>
 
 			<div class="text-center">
 				<a href="/customers/<%= customer.id %>" class="btn btn-danger w-25 my-2 mx-2" type="submit">Cancel</a>
