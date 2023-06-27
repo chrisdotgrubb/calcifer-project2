@@ -7,7 +7,8 @@ const shopController = require('../controllers/shops');
 /* GET home page. */
 router.get('/', shopController.index);
 
-// router.get('/add-data', addData);
+// use this route to add below dummy data if needed
+router.get('/add-data', addData);
 
 module.exports = router;
 
@@ -82,7 +83,7 @@ const wendyCars = [
 		model: 'Civic',
 		trimLevel: 'EX',
 		licensePlate: 'DEF123',
-		mileage: 150000,
+		mileage: 100000,
 		color: 'Red',
 		engine: '1.8 I4',
 		tireSize: '205/55-16',
@@ -131,17 +132,633 @@ const bethCars = [
 	},
 ];
 
-const services = [
+const priusServices = [
 	{
-		date: '2023-01-10',
-		mileage: 185000,
-		description: 'Yearly service',
-		price: 101.85,
+		date: '2013-09-23',
+		mileage: 10000,
+		description: '10k service',
+		price: 85.55,
 		isInShop: false,
 		isPickedUp: true,
 		isPaid: true,
 	},
+	{
+		date: '2014-01-03',
+		mileage: 20000,
+		description: '20k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2014-03-28',
+		mileage: 30000,
+		description: '30k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2014-08-10',
+		mileage: 40000,
+		description: '40k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2014-09-20',
+		mileage: 50000,
+		description: '50k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2015-01-01',
+		mileage: 60000,
+		description: '60k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2015-02-29',
+		mileage: 70000,
+		description: '70k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2015-06-07',
+		mileage: 80000,
+		description: '80k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2015-09-05',
+		mileage: 90000,
+		description: '90k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2015-11-10',
+		mileage: 100000,
+		description: '100k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-01-05',
+		mileage: 110000,
+		description: '110k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-05-02',
+		mileage: 120000,
+		description: '120k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-07-12',
+		mileage: 130000,
+		description: '130k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-09-07',
+		mileage: 140000,
+		description: '140k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-11-22',
+		mileage: 150000,
+		description: '150k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-02-11',
+		mileage: 160000,
+		description: '160k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-06-19',
+		mileage: 170000,
+		description: '170k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2017-10-11',
+		mileage: 180000,
+		description: '180k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2018-01-19',
+		mileage: 190000,
+		description: '190k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2018-04-02',
+		mileage: 200000,
+		description: '200k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2018-08-03',
+		mileage: 210000,
+		description: '210k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2018-10-25',
+		mileage: 220000,
+		description: '220k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2019-01-23',
+		mileage: 230000,
+		description: '230k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2019-06-06',
+		mileage: 240000,
+		description: '240k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2019-09-24',
+		mileage: 250000,
+		description: '250k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2020-01-09',
+		mileage: 260000,
+		description: '260k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2020-06-24',
+		mileage: 270000,
+		description: '270k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2023-01-01',
+		mileage: 280000,
+		description: '280k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+
 ];
+
+const civicServices = [
+	{
+		date: '2015-01-10',
+		mileage: 10000,
+		description: '10k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2015-06-10',
+		mileage: 20000,
+		description: '20k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-02-10',
+		mileage: 30000,
+		description: '30k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-08-10',
+		mileage: 40000,
+		description: '40k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2017-03-10',
+		mileage: 50000,
+		description: '50k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2017-10-10',
+		mileage: 60000,
+		description: '60k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2018-06-10',
+		mileage: 70000,
+		description: '70k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2018-10-10',
+		mileage: 80000,
+		description: '80k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2019-05-10',
+		mileage: 90000,
+		description: '90k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2020-02-10',
+		mileage: 100000,
+		description: '100k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+]
+
+const tacomaServices = [
+	{
+		date: '2015-01-10',
+		mileage: 10000,
+		description: '10k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2015-06-10',
+		mileage: 20000,
+		description: '20k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-02-10',
+		mileage: 30000,
+		description: '30k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-08-10',
+		mileage: 40000,
+		description: '40k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2017-03-10',
+		mileage: 50000,
+		description: '50k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2017-10-10',
+		mileage: 60000,
+		description: '60k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2018-06-10',
+		mileage: 70000,
+		description: '70k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2018-10-10',
+		mileage: 80000,
+		description: '80k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2019-05-10',
+		mileage: 90000,
+		description: '90k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2023-05-10',
+		mileage: 100000,
+		description: '100k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+]
+
+const odysseyServices = [
+	{
+		date: '2015-01-10',
+		mileage: 10000,
+		description: '10k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2015-06-10',
+		mileage: 20000,
+		description: '20k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-02-10',
+		mileage: 30000,
+		description: '30k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-08-10',
+		mileage: 40000,
+		description: '40k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2017-03-10',
+		mileage: 50000,
+		description: '50k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2017-10-10',
+		mileage: 60000,
+		description: '60k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2018-06-10',
+		mileage: 70000,
+		description: '70k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2018-10-10',
+		mileage: 80000,
+		description: '80k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2019-05-10',
+		mileage: 90000,
+		description: '90k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2020-02-10',
+		mileage: 100000,
+		description: '100k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+]
+
+const accordServices = [
+	{
+		date: '2015-01-10',
+		mileage: 10000,
+		description: '10k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2015-06-10',
+		mileage: 20000,
+		description: '20k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-02-10',
+		mileage: 30000,
+		description: '30k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2016-08-10',
+		mileage: 40000,
+		description: '40k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2017-03-10',
+		mileage: 50000,
+		description: '50k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2017-10-10',
+		mileage: 60000,
+		description: '60k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2018-06-10',
+		mileage: 70000,
+		description: '70k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2018-10-10',
+		mileage: 80000,
+		description: '80k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2019-05-10',
+		mileage: 90000,
+		description: '90k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+	{
+		date: '2023-05-10',
+		mileage: 100000,
+		description: '100k service',
+		price: 85.55,
+		isInShop: false,
+		isPickedUp: true,
+		isPaid: true,
+	},
+]
 
 async function addCustomer(c) {
 	try {
@@ -151,9 +768,44 @@ async function addCustomer(c) {
 	};
 }
 
-function addData(req, res) {
-	// customers.forEach(c => addCustomer(c))
-	const chris = Customer.findOne({first: 'Chris'}, 'first last');
-	console.log(chris.cars);
+// add dummy data then redirect
+async function addData(req, res) {
+	customers.forEach(c => addCustomer(c))
+
+	const chris = await Customer.findOne({first: 'Chris'});
+	chrisCars.forEach(car => chris.cars.push(car));
+	await chris.save();
+	const chrisCar0 = await chris.cars[0];
+	priusServices.forEach(serv => chrisCar0.services.push(serv));
+	await chris.save();
+
+	const wendy = await Customer.findOne({first: 'Wendy'});
+	wendyCars.forEach(car => wendy.cars.push(car));
+	await wendy.save();
+	const wendyCar0 = await wendy.cars[0];
+	civicServices.forEach(serv => wendyCar0.services.push(serv));
+	await wendy.save();
+
+	const aaron = await Customer.findOne({first: 'Aaron'});
+	aaronCars.forEach(car => aaron.cars.push(car));
+	await aaron.save();
+	const aaronCar0 = await aaron.cars[0];
+	tacomaServices.forEach(serv => aaronCar0.services.push(serv));
+	await aaron.save();
+
+	const john = await Customer.findOne({first: 'John'});
+	johnCars.forEach(car => john.cars.push(car));
+	await john.save();
+	const johnCar0 = await john.cars[0];
+	odysseyServices.forEach(serv => johnCar0.services.push(serv));
+	await john.save();
+
+	const beth = await Customer.findOne({first: 'Beth'});
+	bethCars.forEach(car => beth.cars.push(car));
+	await beth.save();
+	const bethCar0 = await beth.cars[0];
+	accordServices.forEach(serv => bethCar0.services.push(serv));
+	await beth.save();
+
 	res.redirect('/')
 }
