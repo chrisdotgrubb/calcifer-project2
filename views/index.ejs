@@ -3,7 +3,7 @@
 	<% if (servicesInTheShop.length> 0) { %>
 		<h1 class="text-center my-4">Currently in the shop</h1>
 		<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
-			<div class="list-group col-6">
+			<div class="list-group col-md-6 col-12">
 
 				<% servicesInTheShop.forEach(service=> { %>
 					<a href="/customers/<%= service.customerId %>/cars/<%= service.carId %>/services/<%= service.serviceId %>"
@@ -20,7 +20,7 @@
 	<% } else { %>
 		<h1 class="text-center my-4">Shop is empty</h1>
 		<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
-			<div class="list-group col-6">
+			<div class="list-group col-lg-6 col-md-10 col-12">
 
 			</div>
 		</div>
