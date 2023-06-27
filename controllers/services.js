@@ -1,4 +1,5 @@
 const Customer = require('../models/customer');
+const Shop = require('../models/shop');
 
 module.exports = {
 	index,
@@ -89,10 +90,24 @@ async function create(req, res) {
 	let customer;
 	let car;
 	try {
+		// get customer, then car
 		customer = await Customer.findById(customerId);
 		car = customer.cars.id(carId);
+
+		// add to embedded service model
 		car.services.push(req.body);
 		await customer.save();
+
+		// if it is going into the shop, then add to Shop model
+		if (req.body.isInShop) {
+			await Shop.create({
+				customerId,
+				carId,
+				customerName: `${customer.first} ${customer.last}`,
+				carName: `${car.make} ${car.model}`
+			});
+		};
+
 		res.redirect(`/customers/${customerId}/cars/${carId}/services`);
 	} catch (err) {
 		const errKeys = Object.keys(err.errors);
@@ -115,8 +130,18 @@ async function deleteService(req, res) {
 		const customer = await Customer.findById(customerId);
 		const car = customer.cars.id(carId);
 		const service = car.services.id(serviceId);
+		const wasInShop = service.isInShop;
 		service.deleteOne();
 		await customer.save();
+
+		// if deleted service was in shop, remove from Shop
+		if (wasInShop) {
+			await Shop.findOneAndDelete({
+				customerId,
+				carId
+			});
+		};
+
 		res.redirect(`/customers/${customerId}/cars/${carId}/services`);
 	} catch (err) {
 		const context = {
@@ -168,8 +193,33 @@ async function update(req, res) {
 		customer = await Customer.findById(customerId);
 		const car = customer.cars.id(carId);
 		const service = car.services.id(serviceId);
+
+		// check if service as already in shop prior to update
+		const wasInShop = service.isInShop;
+
+		// update service
 		Object.assign(service, body);
 		await customer.save();
+
+		// if inShop changes
+		if (wasInShop !== req.body.isInShop) {
+			// and it is now in shop, add to Shop
+			if (req.body.isInShop) {
+				await Shop.create({
+					customerId,
+					carId,
+					customerName: `${customer.first} ${customer.last}`,
+					carName: `${car.make} ${car.model}`
+				});
+			// otherwise remove from shop
+			} else {
+				await Shop.findOneAndDelete({
+					customerId,
+					carId
+				});
+			};
+		};
+
 		res.redirect(`/customers/${customerId}/cars/${carId}/services/${serviceId}`);
 	} catch (err) {
 		console.log(err);
