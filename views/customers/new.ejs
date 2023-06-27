@@ -14,7 +14,7 @@
 				<input type="text" class="form-control my-1
 				<% if (err.errors) { %>
 					<%= err.errors.first ? 'is-invalid' : '' %>
-				<% } %>" id="first" name="first">
+				<% } %>" id="first" name="first" value="<%= values ? `${values.first}` : '' %>">
 				<label for="first">First Name</label>
 			</div>
 
@@ -22,7 +22,7 @@
 				<input type="text" class="form-control my-1
 				<% if (err.errors) { %>
 						<%= err.errors.last ? 'is-invalid' : '' %>
-					<% } %>" id="last" name="last">
+					<% } %>" id="last" name="last" value="<%= values ? `${values.last}` : '' %>">
 				<label for="last">Last Name</label>
 			</div>
 
@@ -30,7 +30,7 @@
 				<input type="text" class="form-control my-1
 				<% if (err.errors) { %>
 						<%= err.errors.phone ? 'is-invalid' : '' %>
-					<% } %>" id="phone" name="phone">
+					<% } %>" id="phone" name="phone" value="<%= values ? `${values.phone}` : '' %>">
 				<label for="phone">Phone Number</label>
 			</div>
 
@@ -38,7 +38,7 @@
 				<input type="email" class="form-control my-1
 				<% if (err.errors) { %>
 						<%= err.errors.email ? 'is-invalid' : '' %>
-					<% } %>" id="email" name="email">
+					<% } %>" id="email" name="email" value="<%= values ? `${values.email}` : '' %>">
 				<label for="email">Email</label>
 			</div>
 			
@@ -47,9 +47,9 @@
 				<% if (err.errors) { %>
 						<%= err.errors.preferredCommunication ? 'is-invalid' : '' %>
 					<% } %>" id="preferredCommunication" name="preferredCommunication">
-					<option value="call">call</option>
-					<option value="text">text</option>
-					<option value="email">email</option>
+					<option value="call" <%= values.preferredCommunication === 'call' ? 'selected': '' %>>call</option>
+					<option value="text" <%= values.preferredCommunication === 'text' ? 'selected': '' %>>text</option>
+					<option value="email" <%= values.preferredCommunication === 'email' ? 'selected': '' %>>email</option>
 				</select>
 				<label for="preferredCommunication">Preferred Communication</label>
 			</div>

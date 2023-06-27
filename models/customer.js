@@ -83,6 +83,7 @@ const customerSchema = new Schema({
 	phone: {
 		type: String,
 		required: [true, 'Phone number is required.'],
+		match: [/^\d{3}-\d{3}-\d{4}$/, 'Please enter phone number as: 123-456-7890'],
 	},
 	email: {
 		type: String,

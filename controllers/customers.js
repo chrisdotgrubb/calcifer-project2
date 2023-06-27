@@ -54,6 +54,7 @@ function newCustomer(req, res) {
 		err: {
 			errors: '',
 		},
+		values: '',
 		title: 'New Customer',
 	};
 	res.render('customers/new', context);
@@ -69,7 +70,9 @@ async function create(req, res) {
 			err,
 			message: err.message,
 			title: 'Error',
+			values: req.body,
 		};
+		console.log(req.body);
 		res.render('customers/new', context);
 	};
 }

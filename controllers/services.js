@@ -78,6 +78,7 @@ async function newService(req, res) {
 				errors: '',
 			},
 			title: 'New Service',
+			values: '',
 		};
 		res.render('services/new', context);
 	} catch (err) {
@@ -132,6 +133,7 @@ async function create(req, res) {
 			errKeys,
 			message: err.message,
 			title: 'Error',
+			values: req.body,
 		};
 		res.render('services/new', context);
 	};

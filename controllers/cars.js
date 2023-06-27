@@ -67,6 +67,7 @@ async function newCar(req, res) {
 				errors: '',
 			},
 			title: 'New Car',
+			values: '',
 		};
 		res.render('cars/new', context);
 	} catch (err) {
@@ -96,6 +97,7 @@ async function create(req, res) {
 				errKeys,
 				message: err.message,
 				title: 'Error',
+				values: req.body,
 			};
 			res.render('cars/new', context);
 		} else {

@@ -29,7 +29,7 @@
 					<input type="date" class="form-control my-1
 					<% if (err.errors) { %>
 						<%= errKeys.some(e => e.includes('date')) ? 'is-invalid' : '' %>
-					<% } %>" id="date" name="date">
+					<% } %>" id="date" name="date" value="<%= values ? `${values.date}` : '' %>">
 					<label for="date">Date</label>
 				</div>
 
@@ -37,7 +37,7 @@
 					<input type="number" id="mileage" class="form-control my-1
 					<% if (err.errors) { %>
 						<%= errKeys.some(e => e.includes('mileage')) ? 'is-invalid' : '' %>
-					<% } %>" id="mileage" name="mileage">
+					<% } %>" id="mileage" name="mileage" value="<%= values ? `${values.mileage}` : '' %>">
 					<label for="mileage">Mileage</label>
 				</div>
 
@@ -45,7 +45,7 @@
 					<input type="text" class="form-control my-1
 					<% if (err.errors) { %>
 						<%= errKeys.some(e => e.includes('description')) ? 'is-invalid' : '' %>
-					<% } %>" id="description" name="description">
+					<% } %>" id="description" name="description" value="<%= values ? `${values.description}` : '' %>">
 					<label for="description">Description</label>
 				</div>
 
@@ -53,7 +53,7 @@
 					<input type="number" min="0.00" step="0.01" class="form-control my-1
 					<% if (err.errors) { %>
 						<%= errKeys.some(e => e.includes('price')) ? 'is-invalid' : '' %>
-					<% } %>" id="price" name="price">
+					<% } %>" id="price" name="price" value="<%= values ? `${values.price}` : '' %>">
 					<label for="price">Price</label>
 				</div>
 
@@ -61,7 +61,7 @@
 					<input type="checkbox" class="form-check-input my-1
 					<% if (err.errors) { %>
 						<%= errKeys.some(e => e.includes('isInShop')) ? 'is-invalid' : '' %>
-					<% } %>" id="isInShop" name="isInShop">
+					<% } %>" id="isInShop" name="isInShop" <%= values.isInShop ? 'checked' : '' %>>
 					<label for="isInShop">Is getting worked on now</label>
 				</div>
 
@@ -69,7 +69,7 @@
 					<input type="checkbox" class="form-check-input my-1
 					<% if (err.errors) { %>
 						<%= errKeys.some(e => e.includes('isPickedUp')) ? 'is-invalid' : '' %>
-					<% } %>" id="isPickedUp" name="isPickedUp">
+					<% } %>" id="isPickedUp" name="isPickedUp" <%= values.isPickedUp ? 'checked' : '' %>>
 					<label for="isPickedUp">Customer picked up</label>
 				</div>
 
@@ -77,7 +77,7 @@
 					<input type="checkbox" class="form-check-input my-1
 					<% if (err.errors) { %>
 						<%= errKeys.some(e => e.includes('isPaid')) ? 'is-invalid' : '' %>
-					<% } %>" id="isPaid" name="isPaid">
+					<% } %>" id="isPaid" name="isPaid" <%= values.isPaid ? 'checked' : '' %>>
 					<label for="isPaid">Is paid</label>
 				</div>
 
