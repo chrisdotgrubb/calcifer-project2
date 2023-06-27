@@ -16,12 +16,14 @@ async function index(req, res) {
 		const customers = await Customer.find({});
 		const context = {
 			customers,
+			title: 'Customers',
 		};
 		res.render('customers/index', context);
 	} catch (err) {
 		const context = {
 			error: err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('error', context);
 	};
@@ -32,7 +34,8 @@ async function show(req, res) {
 	try {
 		const customer = await Customer.findById(id);
 		const context = {
-			customer
+			customer,
+			title: `${customer.first} ${customer.last}`,
 		};
 		res.render('customers/show', context);
 
@@ -40,6 +43,7 @@ async function show(req, res) {
 		const context = {
 			error: err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('error', context);
 	};
@@ -50,6 +54,7 @@ function newCustomer(req, res) {
 		err: {
 			errors: '',
 		},
+		title: 'New Customer',
 	};
 	res.render('customers/new', context);
 }
@@ -63,6 +68,7 @@ async function create(req, res) {
 		const context = {
 			err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('customers/new', context);
 	};
@@ -77,6 +83,7 @@ async function deleteCustomer(req, res) {
 		const context = {
 			error: err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('error', context);
 	};
@@ -91,12 +98,14 @@ async function edit(req, res) {
 				errors: '',
 			},
 			customer,
+			title: `Edit ${customer.first}`,
 		};
 		res.render('customers/edit', context);
 	} catch (err) {
 		const context = {
 			error: err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('error', context);
 	};
@@ -115,6 +124,7 @@ async function update(req, res) {
 		const context = {
 			customer: body,
 			err,
+			title: 'Error',
 		};
 		// add customer id so form action has access to it after validation error
 		context.customer.id = id;

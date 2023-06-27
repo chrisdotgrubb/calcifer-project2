@@ -17,12 +17,14 @@ async function index(req, res) {
 		const customer = await Customer.findById(customerId);
 		const context = {
 			customer,
+			title: `${customer.first} cars`,
 		};
 		res.render('cars/index', context);
 	} catch (err) {
 		const context = {
 			error: err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('error', context);
 	};
@@ -37,6 +39,7 @@ async function show(req, res) {
 		const context = {
 			customer,
 			car,
+			title: `${car.make} ${car.model}`,
 		};
 		res.render('cars/show', context);
 
@@ -44,6 +47,7 @@ async function show(req, res) {
 		const context = {
 			error: err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('error', context);
 	};
@@ -58,13 +62,14 @@ async function newCar(req, res) {
 			err: {
 				errors: '',
 			},
-			index: 0,
+			title: 'New Car',
 		};
 		res.render('cars/new', context);
 	} catch (err) {
 		const context = {
 			error: err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('error', context);
 	};
@@ -86,12 +91,14 @@ async function create(req, res) {
 				err,
 				errKeys,
 				message: err.message,
+				title: 'Error',
 			};
 			res.render('cars/new', context);
 		} else {
 			const context = {
 				err,
 				message: err.message,
+				title: 'Error',
 			};
 			res.render('error', context);
 		}
@@ -111,6 +118,7 @@ async function deleteCar(req, res) {
 		const context = {
 			error: err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('error', context);
 	};
@@ -128,13 +136,14 @@ async function edit(req, res) {
 			err: {
 				errors: '',
 			},
-			index: 0,
+			title: `Edit ${car.make} ${car.model}`,
 		};
 		res.render('cars/edit', context);
 	} catch (err) {
 		const context = {
 			error: err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('error', context);
 	};
@@ -158,6 +167,7 @@ async function update(req, res) {
 			car: body,
 			err,
 			errKeys,
+			title: 'Error',
 		};
 		// add carId so form action has access to it after validation error
 		context.car.id = carId;

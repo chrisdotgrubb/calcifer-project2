@@ -20,12 +20,14 @@ async function index(req, res) {
 		const context = {
 			customer,
 			car,
+			title: `${car.model} services`,
 		};
 		res.render('services/index', context);
 	} catch (err) {
 		const context = {
 			error: err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('error', context);
 	};
@@ -45,6 +47,7 @@ async function show(req, res) {
 			car,
 			service,
 			service_date,
+			title: `${car.model} ${service_date}`,
 		};
 		res.render('services/show', context);
 
@@ -52,6 +55,7 @@ async function show(req, res) {
 		const context = {
 			error: err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('error', context);
 	};
@@ -69,12 +73,14 @@ async function newService(req, res) {
 			err: {
 				errors: '',
 			},
+			title: 'New Service',
 		};
 		res.render('services/new', context);
 	} catch (err) {
 		const context = {
 			error: err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('error', context);
 	};
@@ -121,6 +127,7 @@ async function create(req, res) {
 			err,
 			errKeys,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('services/new', context);
 	};
@@ -152,6 +159,7 @@ async function deleteService(req, res) {
 		const context = {
 			error: err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('error', context);
 	};
@@ -174,12 +182,14 @@ async function edit(req, res) {
 			err: {
 				errors: '',
 			},
+			title: `Edit ${car.model} ${service_date}`,
 		};
 		res.render('services/edit', context);
 	} catch (err) {
 		const context = {
 			error: err,
 			message: err.message,
+			title: 'Error',
 		};
 		res.render('error', context);
 	};
@@ -239,6 +249,7 @@ async function update(req, res) {
 			service_date: body.date,
 			err,
 			errKeys,
+			title: 'Error',
 		};
 		// add serviceId so form action has access to it after validation error
 		context.service.id = serviceId;
