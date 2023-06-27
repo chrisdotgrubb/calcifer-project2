@@ -48,9 +48,9 @@
 				<div class="form-floating">
 					<input type="text" class="form-control my-1
 					<% if (err.errors) { %>
-						<%= errKeys.some(e => e.includes('licensePlate')) ? 'is-invalid' : '' %>
-					<% } %>" id="licensePlate" name="licensePlate" value="<%= values ? `${values.licensePlate}` : '' %>">
-					<label for="licensePlate">License Plate</label>
+						<%= errKeys.some(e => e.includes('engine')) ? 'is-invalid' : '' %>
+					<% } %>" id="engine" name="engine" value="<%= values ? `${values.engine}` : '' %>">
+					<label for="engine">Engine</label>
 				</div>
 
 				<div class="form-floating">
@@ -64,17 +64,17 @@
 				<div class="form-floating">
 					<input type="text" class="form-control my-1
 					<% if (err.errors) { %>
-						<%= errKeys.some(e => e.includes('color')) ? 'is-invalid' : '' %>
-					<% } %>" id="color" name="color" value="<%= values ? `${values.color}` : '' %>">
-					<label for="color">Color</label>
+						<%= errKeys.some(e => e.includes('licensePlate')) ? 'is-invalid' : '' %>
+					<% } %>" id="licensePlate" name="licensePlate" value="<%= values ? `${values.licensePlate}` : '' %>">
+					<label for="licensePlate">License Plate</label>
 				</div>
 
 				<div class="form-floating">
 					<input type="text" class="form-control my-1
 					<% if (err.errors) { %>
-						<%= errKeys.some(e => e.includes('engine')) ? 'is-invalid' : '' %>
-					<% } %>" id="engine" name="engine" value="<%= values ? `${values.engine}` : '' %>">
-					<label for="engine">Engine</label>
+						<%= errKeys.some(e => e.includes('color')) ? 'is-invalid' : '' %>
+					<% } %>" id="color" name="color" value="<%= values ? `${values.color}` : '' %>">
+					<label for="color">Color</label>
 				</div>
 
 				<div class="form-floating">

@@ -50,19 +50,19 @@ const carSchema = new Schema({
 		type: String,
 		required: [true, 'Trim level is required.'],
 	},
-	licensePlate: {
+	engine: {
 		type: String,
+		required: [true, 'Engine is required.'],
 	},
 	mileage: {
 		type: Number,
 		required: [true, 'Mileage is required.'],
 	},
-	color: {
+	licensePlate: {
 		type: String,
 	},
-	engine: {
+	color: {
 		type: String,
-		required: [true, 'Engine is required.'],
 	},
 	tireSize: {
 		type: String,
