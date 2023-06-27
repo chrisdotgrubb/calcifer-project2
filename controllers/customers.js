@@ -1,4 +1,5 @@
 const Customer = require('../models/customer');
+const Shop = require('../models/shop');
 
 module.exports = {
 	index,
@@ -81,6 +82,9 @@ async function deleteCustomer(req, res) {
 	const id = req.params.customerId;
 	try {
 		await Customer.findByIdAndDelete(id);
+
+		// delete any services that were in the shop when deleting customer
+		await Shop.deleteMany({customerId: id});
 		res.redirect('/customers');
 	} catch (err) {
 		const context = {
