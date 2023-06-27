@@ -13,7 +13,7 @@ module.exports = {
 
 async function index(req, res) {
 	try {
-		const customers = await Customer.find({});
+		const customers = await Customer.find({}).sort({last: 1, first: 1});
 		const context = {
 			customers,
 			title: 'Customers',

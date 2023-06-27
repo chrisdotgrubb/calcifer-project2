@@ -8,7 +8,7 @@ const shopController = require('../controllers/shops');
 router.get('/', shopController.index);
 
 // use this route to add below dummy data if needed
-router.get('/add-data', addData);
+// router.get('/add-data', addData);
 
 module.exports = router;
 

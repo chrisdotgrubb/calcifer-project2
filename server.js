@@ -19,7 +19,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(async function (req, res, next) {
-	res.locals.servicesInTheShop = await Shop.find({});
+	res.locals.servicesInTheShop = await Shop.find({}).sort({customerName: 1, carName: 1});
 	next();
 });
 

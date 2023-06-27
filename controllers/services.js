@@ -17,6 +17,10 @@ async function index(req, res) {
 	try {
 		const customer = await Customer.findById(customerId);
 		const car = customer.cars.id(carId);
+		car.services.sort((a, b) => {
+			return b.mileage - a.mileage;
+		});
+		await customer.save();
 		const context = {
 			customer,
 			car,
