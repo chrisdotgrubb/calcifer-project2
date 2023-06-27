@@ -98,11 +98,15 @@ async function create(req, res) {
 		car.services.push(req.body);
 		await customer.save();
 
+		// get new service to be able to access id
+		const serviceId = car.services.slice(-1)[0].id;
+
 		// if it is going into the shop, then add to Shop model
 		if (req.body.isInShop) {
 			await Shop.create({
 				customerId,
 				carId,
+				serviceId,
 				customerName: `${customer.first} ${customer.last}`,
 				carName: `${car.make} ${car.model}`
 			});
@@ -138,7 +142,8 @@ async function deleteService(req, res) {
 		if (wasInShop) {
 			await Shop.findOneAndDelete({
 				customerId,
-				carId
+				carId,
+				serviceId
 			});
 		};
 
@@ -208,6 +213,7 @@ async function update(req, res) {
 				await Shop.create({
 					customerId,
 					carId,
+					serviceId,
 					customerName: `${customer.first} ${customer.last}`,
 					carName: `${car.make} ${car.model}`
 				});
@@ -215,7 +221,8 @@ async function update(req, res) {
 			} else {
 				await Shop.findOneAndDelete({
 					customerId,
-					carId
+					carId,
+					serviceId
 				});
 			};
 		};

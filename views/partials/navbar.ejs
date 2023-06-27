@@ -19,9 +19,14 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">In the Shop</a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="#">Car 1</a></li>
-						<li><a class="dropdown-item" href="#">Car 2</a></li>
-						<li><a class="dropdown-item" href="#">Car 3</a></li>
+						<% if (servicesInTheShop.length > 0) { %>
+							<% servicesInTheShop.forEach(serv => { %>
+								<li><a class="dropdown-item" href="/customers/<%= serv.customerId %>/cars/<%= serv.carId %>/services/<%= serv.serviceId %>">
+								<%= serv.customerName %> <%= serv.carName %></a></li>
+							<% }) %>
+						<% } else { %>
+							<li class="dropdown-item disabled">Shop is empty</li>
+						<% } %>
 					</ul>
 				</li>
 			</ul>

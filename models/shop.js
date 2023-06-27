@@ -14,6 +14,10 @@ const shopSchema = new Schema({
 		type: String,
 		required: true,
 	},
+	serviceId: {
+		type: String,
+		required: true,
+	},
 	// 'first last'
 	customerName: {
 		type: String,

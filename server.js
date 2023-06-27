@@ -10,12 +10,18 @@ const methodOverride = require('method-override');
 
 const indexRouter = require('./routes/index');
 const customersRouter = require('./routes/customers');
+const Shop = require('./models/shop');
 
 const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(async function (req, res, next) {
+	res.locals.servicesInTheShop = await Shop.find({});
+	next();
+});
 
 app.use(methodOverride("_method"));
 app.use(logger('dev'));

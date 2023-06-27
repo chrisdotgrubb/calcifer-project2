@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const Customer = require('../models/customer');
+const Shop = require('../models/shop');
+const shopController = require('../controllers/shops');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-	res.render('index', { title: 'Express' });
-});
+router.get('/', shopController.index);
 
 // router.get('/add-data', addData);
 
