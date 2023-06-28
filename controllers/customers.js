@@ -32,7 +32,6 @@ async function index(req, res) {
 }
 
 async function search(req, res) {
-	console.log(req.query);
 	const keyword = req.query.search;
 
 	// define query to search first or last name

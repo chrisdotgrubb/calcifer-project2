@@ -73,10 +73,32 @@
 				<form class="form-group" action="/customers/<%= customer.id %>/cars/<%= car.id %>/edit" method="GET">
 					<button class="btn btn-md btn-secondary" type="submit">Edit</button>
 				</form>
-				<form class="form-group" action="/customers/<%= customer.id %>/cars/<%= car.id %>?_method=DELETE"
-					method="POST">
-					<button class="btn btn-md btn-danger" type="submit">Delete</button>
-				</form>
+				<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+					Delete
+				</button>
+				
+			</div>
+		</div>
+	</div>
+
+	<!-- delete modal -->
+	<div class="modal fade" id="deleteModal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5">Are you sure?</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+				<div class="modal-body">
+					Deleting a car can not be undone!
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<form class="form-group" action="/customers/<%= customer.id %>/cars/<%= car.id %>?_method=DELETE"
+						method="POST">
+						<button class="btn btn-md btn-danger" type="submit">Delete</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
