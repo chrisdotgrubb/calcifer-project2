@@ -3,6 +3,7 @@ const Shop = require('../models/shop');
 
 module.exports = {
 	index,
+	search,
 	show,
 	new: newCustomer,
 	create,
@@ -15,6 +16,33 @@ module.exports = {
 async function index(req, res) {
 	try {
 		const customers = await Customer.find({}).sort({last: 1, first: 1});
+		const context = {
+			customers,
+			title: 'Customers',
+		};
+		res.render('customers/index', context);
+	} catch (err) {
+		const context = {
+			error: err,
+			message: err.message,
+			title: 'Error',
+		};
+		res.render('error', context);
+	};
+}
+
+async function search(req, res) {
+	console.log(req.query);
+	const keyword = req.query.search;
+
+	// define query to search first or last name
+	const query = keyword ?
+		{$or: [
+			{first: {$regex: keyword, $options: 'i'}},
+			{last: {$regex: keyword, $options: 'i'}}
+		]} : {};
+	try {
+		const customers = await Customer.find(query).sort({last: 1, first: 1});
 		const context = {
 			customers,
 			title: 'Customers',

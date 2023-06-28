@@ -10,6 +10,7 @@ router.use('/:customerId/cars', carsRouter);
 
 router.get('/', customerController.index);
 router.get('/new', customerController.new);
+router.get('/search', customerController.search);
 router.get('/:customerId/edit', customerController.edit);
 router.get('/:customerId', customerController.show);
 
