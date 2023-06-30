@@ -245,7 +245,6 @@ async function update(req, res) {
 
 		res.redirect(`/customers/${customerId}/cars/${carId}/services/${serviceId}`);
 	} catch (err) {
-		console.log(err);
 		const errKeys = Object.keys(err.errors);
 		const context = {
 			customer,

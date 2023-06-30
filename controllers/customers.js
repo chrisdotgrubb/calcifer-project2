@@ -93,14 +93,12 @@ async function create(req, res) {
 		await Customer.create(req.body);
 		res.redirect('/customers');
 	} catch (err) {
-		console.log(err);
 		const context = {
 			err,
 			message: err.message,
 			title: 'Error',
 			values: req.body,
 		};
-		console.log(req.body);
 		res.render('customers/new', context);
 	};
 }
