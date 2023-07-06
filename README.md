@@ -25,7 +25,7 @@ GET     | /customers/new | View page for adding new _customer_ | No payload
 GET     | /customers/:customerId/edit | View page for editing one _customer_ | No payload
 POST    | /customers | Create a new _customer_ | Needs new _customer_ fields<br>(req.body)
 PUT     | /customers/customerId | Update a _customer_ | Needs updated _customer_ fields<br>(req.body)
-DELETE  | /customers/customerId | Delete a new _customer_ | No Payload **
+DELETE  | /customers/customerId | Delete a _customer_ | No Payload **
 
 <br />
 
@@ -45,7 +45,7 @@ GET     | /cars/new | View page for adding new _car_ | No payload
 GET     | /cars/:carId/edit | View page for editing one _car_ | No payload
 POST    | /cars | Create a new _car_ | Needs new _car_ fields<br>(req.body)
 PUT     | /cars/:carId | Update a _car_ | Needs updated _car_ fields<br>(req.body)
-DELETE  | /cars/:carId | Delete a new _car_ | No Payload **
+DELETE  | /cars/:carId | Delete a _car_ | No Payload **
 
 <br />
 
@@ -65,7 +65,7 @@ GET     | /services/new | View page for adding new _service_ | No payload
 GET     | /services/:serviceId/edit | View page for editing one _service_ | No payload
 POST    | /services | Create a new _service_ | Needs new _service_ fields **<br>(req.body)
 PUT     | /services/:serviceId | Update a _service_ | Needs updated _service_ fields **<br>(req.body)
-DELETE  | /services/:serviceId | Delete a new _service_ | No Payload **
+DELETE  | /services/:serviceId | Delete a _service_ | No Payload **
 
 > \*\*These routes will also add or remove a Shop item associated with the Service (based on the value of isInShop) to keep track of all services currently being performed.
 
