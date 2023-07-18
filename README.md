@@ -12,7 +12,7 @@ A fictitional auto repair shop was chosen for this project as an example of a co
 
 # Customers
 
-The _Customer_ model is used to store information about _customers_. It stores name, phone number, email, and the communicaton preferences of a customer, but can easily be expanded to include more information if necessary. It also stores the _customer_'s _cars_ as an embedded model.
+The _Customer_ model is used to store information about _customers_. It stores name, phone number, email, and the communication preferences of a customer, but can easily be expanded to include more information if necessary. It also stores the _customer_'s _cars_ as an embedded model.
 
 ## Routes
 
