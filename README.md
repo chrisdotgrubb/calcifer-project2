@@ -1,12 +1,12 @@
 # Car service records app
 
-This project is to showcase my ability to perform CRUD operations using Mongo, Express, Node, and EJS. It is for a hypothetical auto repair shop that needs to keep track of customer records, their cars, and the services performed on those cars. This is done through nested embedded models. There is also a seperate model to keep track of all of the services being done in the shop.
+This project is to showcase my ability to perform CRUD operations using Mongo, Express, Node, and EJS. It is for a hypothetical auto repair shop that needs to keep track of customer records, their cars, and the services performed on those cars. This is done through nested embedded models. There is also a separate model to keep track of all the services being done in the shop.
 
 [Deployed with fly.io](https://calcifer-project2.fly.dev/)
 
 Node and Express were used for the functionality of this app. HTML was used to create the pages, with EJS allowing for the display of dynamic content. Mongo was used as a database to store all of that content, with Mongoose allowing for easier access and communication between the server and database.
 
-A fictitional auto repair shop was chosen for this project as an example of a consumer that needs to store, access, and alter complex data. The shop needs to keep track of customers, their cars, and services. Each customer can have many cars, and each car can have many services. This led to the creation of nested models, done with Mongoose through embedding. In addition to these records, there was a need to track all cars that are currently in the shop for service. Checking each service of each car of each customer on every page load would have been excessive, so a seperate model was created to keep track of only the services currently being performed. This _Shop_ model takes the id of the customer, car, and service being performed, and stores them in a much more easily accessible way. This seperate model makes querying and manipulating service records much more simple and efficient.
+A fictional auto repair shop was chosen for this project as an example of a consumer that needs to store, access, and alter complex data. The shop needs to keep track of customers, their cars, and services. Each customer can have many cars, and each car can have many services. This led to the creation of nested models, done with Mongoose through embedding. In addition to these records, there was a need to track all cars that are currently in the shop for service. Checking each service of each car of each customer on every page load would have been excessive, so a separate model was created to keep track of only the services currently being performed. This _Shop_ model takes the id of the customer, car, and service being performed, and stores them in a much more easily accessible way. This separate model makes querying and manipulating service records much more simple and efficient.
 
 <br />
 
@@ -73,7 +73,7 @@ DELETE  | /services/:serviceId | Delete a _service_ | No Payload **
 
 # Shop
 
-The _Shop_ model is used to store references to services that are currently being performed in the shop. This is done to make these _services_ more accessible. There are no specifc routes associated with adding or deleting from the _shop_. This is mainly done through the service routes, or in the rare case that a _car_ or _customer_ is deleted while that _service_ is in the _shop_. The only specific route for _service_ is the home route which displays all _services_ in the _shop_. These _services_ can also be accessed on any page through the dropdown in the navbar.
+The _Shop_ model is used to store references to services that are currently being performed in the shop. This is done to make these _services_ more accessible. There are no specific routes associated with adding or deleting from the _shop_. This is mainly done through the service routes, or in the rare case that a _car_ or _customer_ is deleted while that _service_ is in the _shop_. The only specific route for _service_ is the home route which displays all _services_ in the _shop_. These _services_ can also be accessed on any page through the dropdown in the navbar.
 
 ## Route
 
@@ -92,4 +92,4 @@ The next thing to add is a user model with different permissions. A _receptionis
 
 This project can also benefit from some styling improvements. This was not an exercise in visual design, but in managing complex data. That said, it would certainly look nicer with some more time devoted to styling.
 
-Finally, data is currently just being entered as strings. This means that consitency and accuracy is not being enforced. "1901 Dodge F-150" is a valid entry into the database. The addition of an API like [CarQuery](https://www.carqueryapi.com/) would allow for proper selection of car makes, models, engine size, and trim levels.
+Finally, data is currently just being entered as strings. This means that consistency and accuracy is not being enforced. "1901 Dodge F-150" is a valid entry into the database. The addition of an API like [CarQuery](https://www.carqueryapi.com/) would allow for proper selection of car makes, models, engine size, and trim levels.
